@@ -1,0 +1,40 @@
+<header class="header" [class.scrolled]="isScrolled()">
+  <div class="header-container">
+    <div class="logo">
+      <!-- Replace logo.png with your actual logo file in public folder -->
+      <img src="/logo.png" alt="Naveen & Nikilesh Developers" class="logo-image" />
+      <span class="logo-text">Naveen & Nikilesh Developers</span>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      @for (item of navigationItems; track item.label) {
+        <a (click)="navigateTo(item.link)" class="nav-link">{{ item.label }}</a>
+      }
+    </nav>
+
+    <!-- Theme Toggle & Mobile Menu Button -->
+    <div class="header-actions">
+      <button class="theme-toggle" (click)="onThemeToggle()" aria-label="Toggle theme">
+        <span class="theme-icon">{{ themeService.isDarkMode() ? '☀️' : '🌙' }}</span>
+      </button>
+      
+      <button class="mobile-menu-btn" (click)="toggleMobileMenu()" aria-label="Toggle menu">
+        <span class="hamburger" [class.open]="isMobileMenuOpen()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" [class.open]="isMobileMenuOpen()">
+    <nav class="mobile-nav-content">
+      @for (item of navigationItems; track item.label) {
+        <a (click)="navigateTo(item.link)" class="mobile-nav-link">{{ item.label }}</a>
+      }
+    </nav>
+  </div>
+</header>

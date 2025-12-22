@@ -1,0 +1,45 @@
+<section id="projects" class="projects">
+  <div class="projects-container">
+    <div class="section-header">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">
+        Explore our portfolio of successfully delivered construction and development projects
+      </p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="category-filter">
+      @for (category of categories; track category.id) {
+        <button 
+          class="category-btn"
+          [class.active]="selectedCategory() === category.id"
+          (click)="selectCategory(category.id)">
+          {{ category.label }}
+        </button>
+      }
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+      @for (project of filteredProjects; track project.id) {
+        <div class="project-card">
+          <div class="project-image">
+            <img [src]="project.image" [alt]="project.title" loading="lazy">
+            <div class="project-overlay">
+              <button class="view-btn">View Details</button>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              @for (tag of project.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

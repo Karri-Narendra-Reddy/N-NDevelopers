@@ -1,0 +1,149 @@
+<section id="contact" class="contact">
+  <div class="contact-container">
+    <div class="contact-content">
+      <div class="contact-info">
+        <h2 class="section-title">Let's Build Together</h2>
+        <p class="section-subtitle">
+          Ready to start your next project? Get in touch with our team of experts.
+        </p>
+
+        <div class="info-items">
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-text">
+              <h4>Location</h4>
+              <p>Tossipudi, SriRangam</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📧</div>
+            <div class="info-text">
+              <h4>Email</h4>
+              <p>nandndevelopers9@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div class="info-text">
+              <h4>Phone</h4>
+              <p>+91 9490646336</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">💬</div>
+            <div class="info-text">
+              <h4>WhatsApp</h4>
+              <a href="https://wa.me/919490646336" target="_blank" class="contact-link">Chat with us on WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📱</div>
+            <div class="info-text">
+              <h4>Instagram</h4>
+              <a href="https://instagram.com/NaveenandNikileshDevelopers" target="_blank" class="contact-link">@NaveenandNikileshDevelopers</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            [(ngModel)]="formData.name"
+            placeholder="Enter your full name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="formData.email"
+            placeholder="Enter your email address"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            [(ngModel)]="formData.phone"
+            placeholder="Enter your phone number"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            [(ngModel)]="formData.message"
+            placeholder="Tell us about your project..."
+            rows="5"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span>Send Message</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <img src="/logo.png" alt="Naveen & Nikilesh Developers" class="logo-image" />
+          <span class="logo-text">Naveen & Nikilesh Developers</span>
+        </div>
+        <p>Building excellence since 2010</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="link-group">
+          <h4>Company</h4>
+          <a href="#about">About Us</a>
+          <a href="#projects">Projects</a>
+          <a href="#services">Services</a>
+        </div>
+
+        <div class="link-group">
+          <h4>Contact</h4>
+          <a href="#contact">Get in Touch</a>
+          <a href="https://wa.me/919490646336" target="_blank">WhatsApp</a>
+          <a href="https://instagram.com/naveen_nikilesh_developers" target="_blank">Instagram</a>
+        </div>
+
+        <div class="link-group">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Licenses</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Naveen & Nikilesh Developers. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

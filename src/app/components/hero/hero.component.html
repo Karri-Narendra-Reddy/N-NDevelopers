@@ -1,0 +1,51 @@
+<section id="home" class="hero" [class.visible]="isVisible()">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="title-line">Building Dreams</span>
+        <span class="title-line">Into Reality</span>
+      </h1>
+      <p class="hero-subtitle">
+        Premier construction and land development services for residential and commercial projects.
+        Transforming visions into exceptional spaces.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" (click)="navigateToSection('#projects')">
+          <span>Explore Projects</span>
+          <span class="btn-arrow">→</span>
+        </button>
+        <button class="btn btn-secondary" (click)="navigateToSection('#contact')">
+          <span>Get Started</span>
+        </button>
+      </div>
+      
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">25+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="visual-card card-1"></div>
+      <div class="visual-card card-2"></div>
+      <div class="visual-card card-3"></div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span class="scroll-text">Scroll to explore</span>
+    <div class="scroll-icon">
+      <div class="scroll-wheel"></div>
+    </div>
+  </div>
+</section>
