@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/',
+  basePath: '/N-NDevelopers',
   supportedLocales: {
   "en-US": ""
 },
