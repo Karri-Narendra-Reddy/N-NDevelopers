@@ -1,6 +1,8 @@
 import { Component, HostListener, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, NavigationEnd } from '@angular/router';
 import { ThemeService } from '../../services/theme.service';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -14,14 +16,17 @@ export class HeaderComponent {
   isMobileMenuOpen = signal(false);
 
   navigationItems = [
-    { label: 'Home', link: '#home' },
-    { label: 'About', link: '#about' },
-    { label: 'Projects', link: '#projects' },
-    { label: 'Services', link: '#services' },
-    { label: 'Contact', link: '#contact' }
+    { label: 'Home', link: '#home', route: '/' },
+    { label: 'About', link: '#about', route: '/' },
+    { label: 'Projects', link: '/projects', route: '/projects' },
+    { label: 'Services', link: '#services', route: '/' },
+    { label: 'Contact', link: '#contact', route: '/' }
   ];
 
-  constructor(public themeService: ThemeService) {}
+  constructor(
+    public themeService: ThemeService,
+    private router: Router
+  ) {}
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
@@ -32,11 +37,31 @@ export class HeaderComponent {
     this.isMobileMenuOpen.update(value => !value);
   }
 
-  navigateTo(link: string): void {
+  navigateTo(item: any): void {
     this.isMobileMenuOpen.set(false);
-    const element = document.querySelector(link);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    // If it's the projects page route, navigate
+    if (item.route === '/projects') {
+      this.router.navigate(['/projects']);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } 
+    // If it's a hash link and we're not on home page, go home first
+    else if (item.link.startsWith('#')) {
+      if (this.router.url !== '/') {
+        this.router.navigate(['/']).then(() => {
+          setTimeout(() => {
+            const element = document.querySelector(item.link);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 100);
+        });
+      } else {
+        const element = document.querySelector(item.link);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
     }
   }
 

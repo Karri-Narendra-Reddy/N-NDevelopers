@@ -1,6 +1,5 @@
 import { Component, signal, AfterViewInit, OnDestroy, ElementRef, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Router } from '@angular/router';
 
 interface Project {
   id: number;
@@ -12,16 +11,15 @@ interface Project {
 }
 
 @Component({
-  selector: 'app-projects',
+  selector: 'app-projects-page',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+  templateUrl: './projects-page.component.html',
+  styleUrls: ['./projects-page.component.scss']
 })
-export class ProjectsComponent implements AfterViewInit, OnDestroy {
+export class ProjectsPageComponent implements AfterViewInit, OnDestroy {
   private observer?: IntersectionObserver;
   selectedCategory = signal<string>('all');
-  maxDisplayed = 6;
   
   categories = [
     { id: 'all', label: 'All Projects' },
@@ -95,13 +93,44 @@ export class ProjectsComponent implements AfterViewInit, OnDestroy {
       description: 'Complete restoration of Victorian-era mansion',
       image: 'https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=800',
       tags: ['Renovation', 'Heritage', 'Restoration']
+    },
+    {
+      id: 9,
+      title: 'Waterfront Condominiums',
+      category: 'residential',
+      description: 'Luxury waterfront living with panoramic views',
+      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800',
+      tags: ['Residential', 'Waterfront', 'Luxury']
+    },
+    {
+      id: 10,
+      title: 'Corporate Headquarters',
+      category: 'commercial',
+      description: 'State-of-the-art tech company headquarters',
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800',
+      tags: ['Commercial', 'Modern', 'Tech']
+    },
+    {
+      id: 11,
+      title: 'Mixed-Use Development',
+      category: 'commercial',
+      description: 'Integrated residential and commercial space',
+      image: 'https://images.unsplash.com/photo-1460574283810-2aab119d8511?w=800',
+      tags: ['Commercial', 'Mixed-Use', 'Urban']
+    },
+    {
+      id: 12,
+      title: 'Eco-Friendly Community',
+      category: 'land-development',
+      description: 'Sustainable residential development with green spaces',
+      image: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=800',
+      tags: ['Land Development', 'Eco-Friendly', 'Sustainable']
     }
   ];
 
   constructor(
     private elementRef: ElementRef,
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private router: Router
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngAfterViewInit(): void {
@@ -115,29 +144,14 @@ export class ProjectsComponent implements AfterViewInit, OnDestroy {
   }
 
   get filteredProjects(): Project[] {
-    const filtered = this.selectedCategory() === 'all' 
-      ? this.projects 
-      : this.projects.filter(p => p.category === this.selectedCategory());
-    return filtered.slice(0, this.maxDisplayed);
-  }
-
-  get totalProjects(): number {
-    return this.selectedCategory() === 'all' 
-      ? this.projects.length 
-      : this.projects.filter(p => p.category === this.selectedCategory()).length;
-  }
-
-  get hasMoreProjects(): boolean {
-    return this.totalProjects > this.maxDisplayed;
-  }
-
-  viewAllProjects(): void {
-    this.router.navigate(['/projects']);
+    if (this.selectedCategory() === 'all') {
+      return this.projects;
+    }
+    return this.projects.filter(p => p.category === this.selectedCategory());
   }
 
   selectCategory(categoryId: string): void {
     this.selectedCategory.set(categoryId);
-    // Re-observe cards after filtering
     setTimeout(() => this.setupScrollAnimations(), 50);
   }
 

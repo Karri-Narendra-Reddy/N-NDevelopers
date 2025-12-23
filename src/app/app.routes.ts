@@ -1,3 +1,16 @@
 import { Routes } from '@angular/router';
+import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
+import { HomeComponent } from './pages/home/home.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    title: 'ConstructPro - Building Dreams Into Reality'
+  },
+  {
+    path: 'projects',
+    component: ProjectsPageComponent,
+    title: 'Our Projects - ConstructPro'
+  }
+];

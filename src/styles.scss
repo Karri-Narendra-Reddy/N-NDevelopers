@@ -231,4 +231,39 @@ $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
 $breakpoint-xxl: 1400px;
+
+/* Custom Snackbar/Toast Styles */
+.success-snackbar {
+  background-color: #10b981 !important;
+  color: white !important;
+  font-weight: 500 !important;
+  
+  .mat-mdc-snack-bar-label {
+    color: white !important;
+  }
+  
+  .mat-mdc-button {
+    color: white !important;
+  }
+}
+
+.error-snackbar {
+  background-color: #ef4444 !important;
+  color: white !important;
+  font-weight: 500 !important;
+  
+  .mat-mdc-snack-bar-label {
+    color: white !important;
+  }
+  
+  .mat-mdc-button {
+    color: white !important;
+  }
+}
+
+.mat-mdc-snack-bar-container {
+  --mdc-snackbar-container-shape: 8px;
+  --mat-snack-bar-button-color: white;
+}
+
 /* You can add global styles to this file, and also import other style files */

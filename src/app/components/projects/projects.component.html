@@ -41,5 +41,16 @@
         </div>
       }
     </div>
+
+    <!-- View All Button -->
+    @if (hasMoreProjects) {
+      <div class="view-all-container">
+        <button class="view-all-btn" (click)="viewAllProjects()">
+          <span>View All Projects</span>
+          <span class="btn-icon">→</span>
+        </button>
+        <p class="projects-count">Showing {{ filteredProjects.length }} of {{ totalProjects }} projects</p>
+      </div>
+    }
   </div>
 </section>

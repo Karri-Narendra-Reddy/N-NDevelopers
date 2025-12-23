@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <form class="contact-form" (ngSubmit)="onSubmit()">
+      <form #contactForm="ngForm" class="contact-form" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="name">Full Name</label>
           <input
@@ -98,9 +98,17 @@
           ></textarea>
         </div>
 
-        <button type="submit" class="submit-btn">
-          <span>Send Message</span>
-          <span class="btn-arrow">→</span>
+        @if (submitMessage) {
+          <div class="submit-message" [class.success]="submitSuccess" [class.error]="!submitSuccess">
+            {{ submitMessage }}
+          </div>
+        }
+
+        <button type="submit" class="submit-btn" [disabled]="isSubmitting">
+          <span>{{ isSubmitting ? 'Sending...' : 'Send Message' }}</span>
+          @if (!isSubmitting) {
+            <span class="btn-arrow">→</span>
+          }
         </button>
       </form>
     </div>

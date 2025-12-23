@@ -1,32 +1,69 @@
-.projects {
-  padding: 6rem 2rem;
+.projects-page {
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+// Hero Section
+.page-hero {
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-secondary) 100%);
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  }
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.page-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  animation: fadeInUp 0.8s ease;
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  opacity: 0.95;
+  line-height: 1.7;
+  margin: 0;
+  animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Projects Section
+.projects-section {
+  padding: 5rem 2rem;
   background: var(--bg-secondary);
 }
 
 .projects-container {
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.section-title {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 700;
-  margin: 0 0 1rem;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
-}
-
-.section-subtitle {
-  font-size: 1.15rem;
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
 }
 
 .category-filter {
@@ -96,7 +133,6 @@
     }
   }
 
-  // Keep hover effects for desktop only
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       transform: translateY(-8px);
@@ -104,7 +140,7 @@
 
       .project-image img {
         transform: scale(1.1);
-    }
+      }
 
       .project-overlay {
         opacity: 1;
@@ -112,22 +148,10 @@
     }
   }
 
-  // For mobile/touch devices, show overlay on scroll animation
   @media (hover: none) {
     &.visible .project-overlay {
       opacity: 1;
     }
-  }
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  from {
-    opacity: 0;
-    transform: translateY(20px);
   }
 }
 
@@ -213,47 +237,9 @@
   margin: 0;
 }
 
-.view-all-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 3rem;
-  padding-top: 2rem;
-}
-
-.view-all-btn {
-  padding: 1rem 2.5rem;
-  font-size: 1.05rem;
-  font-weight: 600;
-  border-radius: 50px;
-  border: 2px solid var(--accent-color);
-  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-secondary) 100%);
-  color: white;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
-
-    .btn-icon {
-      transform: translateX(5px);
-    }
-  }
-
-  .btn-icon {
-    font-size: 1.3rem;
-    transition: transform 0.3s ease;
-  }
-}
-
-.projects-count {
-  font-size: 0.95rem;
+.no-results {
+  text-align: center;
+  padding: 4rem 2rem;
   color: var(--text-secondary);
-  margin: 0;
+  font-size: 1.1rem;
 }

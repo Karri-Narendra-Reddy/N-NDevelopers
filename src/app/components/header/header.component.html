@@ -9,7 +9,7 @@
     <!-- Desktop Navigation -->
     <nav class="desktop-nav">
       @for (item of navigationItems; track item.label) {
-        <a (click)="navigateTo(item.link)" class="nav-link">{{ item.label }}</a>
+        <a (click)="navigateTo(item)" class="nav-link">{{ item.label }}</a>
       }
     </nav>
 
@@ -33,7 +33,7 @@
   <div class="mobile-nav" [class.open]="isMobileMenuOpen()">
     <nav class="mobile-nav-content">
       @for (item of navigationItems; track item.label) {
-        <a (click)="navigateTo(item.link)" class="mobile-nav-link">{{ item.label }}</a>
+        <a (click)="navigateTo(item)" class="mobile-nav-link">{{ item.label }}</a>
       }
     </nav>
   </div>
