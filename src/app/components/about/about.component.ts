@@ -100,22 +100,25 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     const options = {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
     };
 
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible');
+          // Stop observing once animated to prevent re-animation
+          this.observer?.unobserve(entry.target);
         }
       });
     }, options);
 
-    const cards = this.elementRef.nativeElement.querySelectorAll('.value-card, .mission-card, .vision-card, .team-card, .stat-card');
-    cards.forEach((card: Element) => this.observer?.observe(card));
+    // Use setTimeout to defer observation until next frame
+    setTimeout(() => {
+      const cards = this.elementRef.nativeElement.querySelectorAll('.value-card, .mission-card, .vision-card, .team-card, .stat-card');
+      cards.forEach((card: Element) => this.observer?.observe(card));
+    }, 100);
   }
 
   private setupStatsAnimation(): void {
@@ -129,28 +132,27 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     const options = {
-      threshold: 0.5,
+      threshold: 0.3,
       rootMargin: '0px'
     };
 
     this.statsObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !this.hasAnimatedStats) {
+          this.hasAnimatedStats = true;
           this.animateCounters();
-        } else {
-          // Reset counters when leaving viewport
-          this.projectsCompleted.set(0);
-          this.yearsExperience.set(0);
-          this.happyClients.set(0);
-          this.teamMembers.set(0);
+          // Stop observing once animated
+          this.statsObserver?.unobserve(entry.target);
         }
       });
     }, options);
 
-    const achievementsSection = this.elementRef.nativeElement.querySelector('.achievements-grid');
-    if (achievementsSection) {
-      this.statsObserver.observe(achievementsSection);
-    }
+    setTimeout(() => {
+      const achievementsSection = this.elementRef.nativeElement.querySelector('.achievements-grid');
+      if (achievementsSection && this.statsObserver) {
+        this.statsObserver.observe(achievementsSection);
+      }
+    }, 100);
   }
 
   private animateCounters(): void {
@@ -170,12 +172,15 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
     const step = (currentTime: number) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const easeOutQuart = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(start + (end - start) * easeOutQuart);
       signal.set(current);
 
       if (progress < 1) {
         requestAnimationFrame(step);
+      } else {
+        // Ensure final value is set
+        signal.set(end);
       }
     };
     requestAnimationFrame(step);

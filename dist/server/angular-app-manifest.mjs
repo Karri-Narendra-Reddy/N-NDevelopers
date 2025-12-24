@@ -2,24 +2,24 @@
 export default {
   bootstrap: () => import('./main.server.mjs').then(m => m.default),
   inlineCriticalCss: true,
-  baseHref: '/N-NDevelopers/',
+  baseHref: '/',
   locale: undefined,
   routes: [
   {
     "renderMode": 2,
-    "route": "/N-NDevelopers"
+    "route": "/"
   },
   {
     "renderMode": 2,
-    "route": "/N-NDevelopers/projects"
+    "route": "/projects"
   }
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 25253, hash: 'e91cf9d173fa645ca77024054b161e1bee42ee61f97de63953fef9c3b0a3c687', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 17073, hash: 'af58e8628a4e790d96d375c78085af8918c8435b4a4600082d894aab0ac11e8f', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'projects/index.html': {size: 54348, hash: '412afa0aceb40c6d0069c8b2baf0da67ba6939d2c0eb4cf7c3fca545004344e3', text: () => import('./assets-chunks/projects_index_html.mjs').then(m => m.default)},
-    'index.html': {size: 95723, hash: 'a66cf7ab42d564e803a833e7c75d9d734fee4ffdf6af8159b1a1f56ec596c8a5', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
-    'styles-YLKKKPQW.css': {size: 10867, hash: '2N+A97Fc/IU', text: () => import('./assets-chunks/styles-YLKKKPQW_css.mjs').then(m => m.default)}
+    'index.csr.html': {size: 22563, hash: 'ee5f91e4342e090631c01b1b1cf56ed9e8c99a4e01fb74b1e1f761d3c01bdc1b', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 14320, hash: '342155fb0936247117338a7fcd04e5e39c7798fd92d65d4c6ad1c4645fc9cb38', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'projects/index.html': {size: 61485, hash: 'c6f3922ad653e049bd6686c049980032d7675f9abe3f446e98c33dc6adb53fdd', text: () => import('./assets-chunks/projects_index_html.mjs').then(m => m.default)},
+    'index.html': {size: 104123, hash: 'cf8e981064d4bc7694e465068c11cc8ca4478f9b964f15cc09e638de6368a0da', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
+    'styles-KQRYHPL2.css': {size: 11606, hash: 'V0+BoDTTxdA', text: () => import('./assets-chunks/styles-KQRYHPL2_css.mjs').then(m => m.default)}
   },
 };
