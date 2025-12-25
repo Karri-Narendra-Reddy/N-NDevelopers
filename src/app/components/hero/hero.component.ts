@@ -31,9 +31,9 @@ export class HeroComponent implements OnInit, AfterViewInit {
   private setupStatsAnimation(): void {
     if (!isPlatformBrowser(this.platformId)) {
       // Set final values immediately on server
-      this.projectCount.set(500);
-      this.satisfactionRate.set(98);
-      this.yearsExperience.set(25);
+      this.projectCount.set(25);
+      this.satisfactionRate.set(100);
+      this.yearsExperience.set(15);
       return;
     }
 
@@ -60,9 +60,9 @@ export class HeroComponent implements OnInit, AfterViewInit {
   }
 
   private animateCounters(): void {
-    this.animateValue(this.projectCount, 0, 500, 2000);
-    this.animateValue(this.satisfactionRate, 0, 98, 2000);
-    this.animateValue(this.yearsExperience, 0, 25, 2000);
+    this.animateValue(this.projectCount, 0, 25, 2000);
+    this.animateValue(this.satisfactionRate, 0, 100, 2000);
+    this.animateValue(this.yearsExperience, 0, 15, 2000);
   }
 
   private animateValue(
