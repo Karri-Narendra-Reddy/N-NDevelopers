@@ -23,7 +23,8 @@ export class ProjectsPageComponent implements AfterViewInit, OnDestroy {
     { id: 'residential', label: 'Residential' },
     { id: 'commercial', label: 'Commercial' },
     { id: 'land-development', label: 'Land Development' },
-    { id: 'renovation', label: 'Renovation' }
+    { id: 'parks', label: 'Parks' },
+    { id: 'upcoming', label: 'Upcoming' }
   ];
 
   constructor(

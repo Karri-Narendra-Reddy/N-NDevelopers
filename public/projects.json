@@ -8,135 +8,135 @@
       "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
       "tags": ["Residential", "Modern", "Luxury"],
       "gallery": [
-        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200",
-        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200",
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200",
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200",
-        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200"
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0024.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0032.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0042.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0073.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0080.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0090.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0094.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0103.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0107.JPG?raw=true"
       ],
       "location": "Downtown District",
       "year": "2023",
-      "client": "Urban Living Corp"
+      "client": "Urban Living Corp",
+      "brochure": ""
     },
     {
       "id": 2,
-      "title": "Downtown Office Tower",
+      "title": "Commercial Spaces",
       "category": "commercial",
       "description": "30-story commercial building in the heart of the city with state-of-the-art facilities and sustainable design",
       "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
       "tags": ["Commercial", "High-rise", "Office"],
       "gallery": [
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200",
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200",
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200",
-        "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1200"
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/commercial/DSC_0122.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/commercial/DSC_0117.jpg?raw=true"
       ],
       "location": "Central Business District",
       "year": "2023",
-      "client": "Metro Business Group"
+      "client": "Metro Business Group",
+      "brochure": ""
     },
     {
       "id": 3,
-      "title": "Suburban Land Development",
+      "title": "Sri Rangam",
       "category": "land-development",
-      "description": "200-acre residential community with complete infrastructure including roads, utilities, and recreational facilities",
-      "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800",
+      "description": "10+ acre residential community with complete infrastructure including roads, utilities, and recreational facilities",
+      "image": "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriRangam/Srirangam_Logo.PNG?raw=true",
       "tags": ["Land Development", "Community", "Planning"],
       "gallery": [
-        "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200",
-        "https://images.unsplash.com/photo-1464146072230-91cabc968266?w=1200",
-        "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1200",
-        "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1200"
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriRangam/DSC_0086.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriRangam/DSC_0035.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriRangam/DSC_0017.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriRangam/DSC_0016.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriRangam/DSC_0065.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriRangam/DSC_0068.jpg?raw=true"
       ],
-      "location": "Green Valley",
-      "year": "2022",
-      "client": "Valley Estates LLC"
+      "location": "Tossipudi - Pandalapaka",
+      "year": "2023",
+      "client": "",
+      "brochure": "brochures/Sri Rangam.pdf"
     },
     {
       "id": 4,
-      "title": "Historic Building Renovation",
-      "category": "renovation",
-      "description": "Restored 1920s building into modern mixed-use space while preserving historical architecture",
-      "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800",
-      "tags": ["Renovation", "Historic", "Preservation"],
+      "title": "Sri City",
+      "category": "land-development",
+      "description": "25-acre residential community with complete infrastructure including roads, utilities, and recreational facilities",
+      "image": "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriCity/SriCity%20Urban%20Living/Sricity_Logo.jpg?raw=true",
+      "tags": ["Land Development", "Community", "Planning"],
       "gallery": [
-        "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200",
-        "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200",
-        "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=1200",
-        "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=1200"
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriCity/DSC_0140.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriCity/DSC_0135.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriCity/DJI_0695.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriCity/DSC_0153.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriCity/Road.jpg?raw=true"
       ],
-      "location": "Historic Quarter",
-      "year": "2023",
-      "client": "Heritage Preservation Society"
+      "location": "Ramachandrapuram",
+      "year": "2022",
+      "client": "",
+      "brochure": "brochures/Sri City.pdf"
     },
     {
       "id": 5,
-      "title": "Luxury Villa Estate",
-      "category": "residential",
-      "description": "Custom-built 10,000 sq ft estate with premium finishes, smart home technology, and panoramic views",
-      "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
-      "tags": ["Residential", "Luxury", "Custom"],
+      "title": "Srinivasam",
+      "category": "land-development",
+      "description": "20-acre residential community with complete infrastructure including roads, utilities, and recreational facilities",
+      "image": "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/Srinivasam_Logo.PNG?raw=true",
+      "tags": ["Land Development", "Community", "Planning"],
       "gallery": [
-        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200",
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200",
-        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200",
-        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200",
-        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200"
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/DSC_0095.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/DSC_0091.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/DSC_0099.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/DJI_0930.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/DSC_0122.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/DSC_0126.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/DSC_0074.jpg?raw=true"
       ],
-      "location": "Hilltop Estates",
-      "year": "2024",
-      "client": "Private Client"
+      "location": "Rayavaram",
+      "year": "2022",
+      "client": "",
+      "brochure": "brochures/Srinivasam.pdf"
     },
     {
       "id": 6,
-      "title": "Shopping Center Development",
-      "category": "commercial",
-      "description": "Modern retail complex with 50+ stores, entertainment zone, and ample parking facilities",
-      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800",
-      "tags": ["Commercial", "Retail", "Entertainment"],
+      "title": "Parks Development",
+      "category": "parks",
+      "description": "Recreational park with walking trails, playgrounds, and green spaces for community enjoyment",
+      "image": "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/Srinivasam_Logo.PNG?raw=true",
+      "tags": ["Land Development", "Community", "Planning"],
       "gallery": [
-        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200",
-        "https://images.unsplash.com/photo-1555529902-5261145633bf?w=1200",
-        "https://images.unsplash.com/photo-1567958451986-2de427a4a0be?w=1200",
-        "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=1200"
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/parktopview.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/9ADCEF69-52B8-41A3-9857-9F85B1CB50AF.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/Buddha.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/Cow.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/DSC_0134.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/DSC_0172.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/DSC_0180.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/DSC_0184.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/RadhaKrishna.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/park.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/saibaba.jpg?raw=true"
       ],
-      "location": "Westside Plaza",
-      "year": "2023",
-      "client": "Retail Ventures Inc"
+      "location": "",
+      "year": "Till Date",
+      "client": "",
+      "brochure": ""
     },
-    {
+     {
       "id": 7,
-      "title": "Industrial Park Layout",
-      "category": "land-development",
-      "description": "500-acre industrial park with logistics facilities, warehouses, and comprehensive infrastructure",
-      "image": "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800",
-      "tags": ["Land Development", "Industrial", "Logistics"],
-      "gallery": [
-        "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=1200",
-        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200",
-        "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1200",
-        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200"
+      "title": "Upcoming Development",
+      "category": "upcoming",
+      "description": "6.13-acre residential community with complete infrastructure including roads, utilities, and recreational facilities",
+      "image": "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Sri%20paadam/6x4%20=%20Sri%20Padham%20(STAR)%20copy.jpg?raw=true",
+      "tags": ["Land Development", "Community", "Planning"],
+      "gallery": [        
       ],
-      "location": "Industrial Zone East",
-      "year": "2022",
-      "client": "Logistics Solutions Ltd"
-    },
-    {
-      "id": 8,
-      "title": "Heritage Home Restoration",
-      "category": "renovation",
-      "description": "Complete restoration of Victorian-era mansion maintaining original character with modern amenities",
-      "image": "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=800",
-      "tags": ["Renovation", "Heritage", "Restoration"],
-      "gallery": [
-        "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=1200",
-        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200",
-        "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1200",
-        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200"
-      ],
-      "location": "Heritage District",
-      "year": "2024",
-      "client": "Victorian Homes Trust"
+      "location": "Machavaram",
+      "year": "2025-26",
+      "client": "",
+      "brochure": ""
     }
   ]
 }

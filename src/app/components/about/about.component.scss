@@ -92,6 +92,28 @@
       font-weight: 600;
     }
   }
+  
+  .founder-signature {
+    margin-top: 10px;
+    // padding-top: 2rem;
+    
+    .founder-name {
+      text-align: end;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin: 0 0 0.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .company-name {
+      text-align: end;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin: 0;
+      font-style: italic;
+    }
+  }
 }
 
 .story-image {

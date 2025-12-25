@@ -23,7 +23,10 @@ export class ProjectsComponent implements AfterViewInit, OnDestroy {
     { id: 'all', label: 'All Projects' },
     { id: 'land-development', label: 'Land Development' },
     { id: 'residential', label: 'Residential' },
-    { id: 'commercial', label: 'Commercial' }
+    { id: 'commercial', label: 'Commercial' },
+    { id: 'parks', label: 'Parks' },
+    { id: 'upcoming', label: 'Upcoming' }
+
     ];
 
   constructor(

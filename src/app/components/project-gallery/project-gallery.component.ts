@@ -13,6 +13,7 @@ interface Project {
   location?: string;
   year?: string;
   client?: string;
+  brochure?: string;
 }
 
 @Component({
@@ -100,12 +101,13 @@ export class ProjectGalleryComponent {
   }
 
   downloadImage() {
-    if (!this.project?.gallery) return;
+    if (!this.project) return;
     
-    const imageUrl = this.project.gallery[this.currentImageIndex()];
+    // Download brochure from public folder
+    const brochureUrl = this.project.brochure || `/brochures/${this.project.title.replace(/\s+/g, '-').toLowerCase()}-brochure.pdf`;
     const link = document.createElement('a');
-    link.href = imageUrl;
-    link.download = `${this.project.title}-${this.currentImageIndex() + 1}.jpg`;
+    link.href = brochureUrl;
+    link.download = `${this.project.title}-Brochure.pdf`;
     link.target = '_blank';
     document.body.appendChild(link);
     link.click();

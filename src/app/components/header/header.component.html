@@ -2,7 +2,7 @@
   <div class="header-container">
     <div class="logo">
       <!-- Replace logo.png with your actual logo file in public folder -->
-      <img src="logo.png" alt="Naveen & Nikilesh Constructions" class="logo-image" />
+      <img src="logo.jpg" alt="Naveen & Nikilesh Constructions" class="logo-image" />
       <span class="logo-text">Naveen & Nikilesh Constructions</span>
     </div>
 
@@ -11,10 +11,6 @@
       @for (item of navigationItems; track item.label) {
         <a (click)="navigateTo(item)" class="nav-link">{{ item.label }}</a>
       }
-      <button class="download-brochure-btn" (click)="downloadBrochure()" aria-label="Download Brochure">
-        <mat-icon>download</mat-icon>
-        <span>Brochure</span>
-      </button>
     </nav>
 
     <!-- Theme Toggle & Mobile Menu Button -->
