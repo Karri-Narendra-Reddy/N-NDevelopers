@@ -19,8 +19,15 @@
 
     <!-- Theme Toggle & Mobile Menu Button -->
     <div class="header-actions">
-      <button class="theme-toggle" (click)="onThemeToggle()" aria-label="Toggle theme">
-        <mat-icon>{{ themeService.isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+      <button class="theme-toggle" (click)="onThemeToggle()" 
+              [class.dark]="themeService.isDarkMode()"
+              [attr.aria-label]="themeService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'">
+        <div class="toggle-track">
+          <div class="toggle-thumb">
+            <mat-icon class="icon-light">wb_sunny</mat-icon>
+            <mat-icon class="icon-dark">nightlight</mat-icon>
+          </div>
+        </div>
       </button>
     </div>
   </div>
