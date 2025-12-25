@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy, ElementRef, AfterViewInit, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatIconModule],
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.scss']
 })
@@ -13,24 +14,28 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
 
   services = [
     {
-      icon: '🏘️',
+      icon: 'map',
       title: 'Land Development',
-      description: 'Site planning, grading, utilities, and infrastructure development'
+      description: 'Site planning, grading, utilities, and infrastructure development',
+      color: '#22C55E' // green
     },
     {
-      icon: '🏢',
+      icon: 'business',
       title: 'Commercial Projects',
-      description: 'Office buildings, retail spaces, and commercial complexes'
+      description: 'Office buildings, retail spaces, and commercial complexes',
+      color: '#3B82F6' // blue
     },
     {
-      icon: '🏡',
+      icon: 'home',
       title: 'Residential Building',
-      description: 'Custom homes, apartments, and residential communities'
+      description: 'Custom homes, apartments, and residential communities',
+      color: '#F59E0B' // amber
     },
     {
-      icon: '📐',
+      icon: 'design_services',
       title: 'Project Management',
-      description: 'Complete project oversight from planning to completion'
+      description: 'Complete project oversight from planning to completion',
+      color: '#7C3AED' // violet
     }
   ];
 

@@ -10,10 +10,10 @@
     <div class="services-grid">
       @for (service of services; track service.title) {
         <div class="service-card">
-          <div class="service-icon">{{ service.icon }}</div>
+          <div class="service-icon"><mat-icon [ngStyle]="{ color: service.color }">{{ service.icon }}</mat-icon></div>
           <h3 class="service-title">{{ service.title }}</h3>
           <p class="service-description">{{ service.description }}</p>
-          <div class="service-arrow">→</div>
+          <div class="service-arrow"><mat-icon>arrow_forward</mat-icon></div>
         </div>
       }
     </div>

@@ -120,11 +120,12 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  opacity: 0;
-  transform: translateY(30px);
+  /* Visible by default to avoid SSR hydration issues */
+  opacity: 1;
+  transform: none;
 
   &.visible {
-    animation: fadeInUp 0.6s ease forwards;
+    animation: fadeInUp 0.6s ease both;
   }
 
   @for $i from 1 through 12 {

@@ -41,7 +41,7 @@
   <div class="mission-vision">
     <div class="mission-vision-container">
       <div class="mission-card">
-        <div class="card-icon">🎯</div>
+        <div class="card-icon"><mat-icon>track_changes</mat-icon></div>
         <h3 class="card-title">Our Mission</h3>
         <p class="card-text">
           To deliver world-class construction and development solutions that exceed client expectations 
@@ -50,7 +50,7 @@
       </div>
 
       <div class="vision-card">
-        <div class="card-icon">🚀</div>
+        <div class="card-icon"><mat-icon>flight_takeoff</mat-icon></div>
         <h3 class="card-title">Our Vision</h3>
         <p class="card-text">
           To be the leading construction and development company, recognized for innovation, 
@@ -71,7 +71,7 @@
       <div class="values-grid">
         @for (value of values; track value.title) {
           <div class="value-card">
-            <div class="value-icon">{{ value.icon }}</div>
+            <div class="value-icon"><mat-icon [ngStyle]="{ color: value.color }">{{ value.icon }}</mat-icon></div>
             <h3 class="value-title">{{ value.title }}</h3>
             <p class="value-description">{{ value.description }}</p>
           </div>

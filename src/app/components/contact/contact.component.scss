@@ -11,6 +11,7 @@
 .contact-content {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
+  overflow-x: hidden; /* prevent horizontal scroll on mobile */
   gap: 4rem;
   align-items: start;
 
@@ -21,7 +22,9 @@
 }
 
 .contact-info {
-  .section-title {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* reduced gap on mobile */
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
     margin: 0 0 1rem;
@@ -33,14 +36,14 @@
     font-size: 1.15rem;
     color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: 3rem;
   }
-}
+ 
 
 .info-items {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  overflow-wrap: anywhere; /* allow long strings like emails to wrap */
 }
 
 .info-item {
@@ -51,6 +54,7 @@
 
 .info-icon {
   font-size: 2rem;
+  overflow-wrap: anywhere;
   width: 60px;
   height: 60px;
   display: flex;
@@ -61,12 +65,19 @@
   flex-shrink: 0;
 }
 
+/* Brand coloring for contact icons */
+.info-item.location .info-icon { color: #F44336; } /* red pin */
+.info-item.email .info-icon { color: #EA4335; } /* envelope (Gmail red tone) */
+.info-item.instagram .info-icon { color: #E4405F; } /* Instagram brand */
+.info-item.whatsapp .info-icon { color: #25D366; } /* WhatsApp brand */
+
 .info-text {
   h4 {
     font-size: 1.1rem;
     font-weight: 700;
     margin: 0 0 0.5rem;
     color: var(--text-primary);
+    overflow-wrap: anywhere;
   }
 
   p {
@@ -83,6 +94,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    overflow-wrap: anywhere;
     
     &:hover {
       color: var(--accent-secondary);
@@ -97,6 +109,9 @@
   border-radius: 24px;
   border: 2px solid var(--border-color);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
 
   @media (max-width: 768px) {
     padding: 2rem;
@@ -312,6 +327,10 @@
     &:hover {
       color: var(--accent-color);
     }
+    fa-icon { margin-right: 8px; }
+    &.email-link fa-icon { color: #EA4335; }
+    &.whatsapp-link fa-icon { color: #25D366; }
+    &.instagram-link fa-icon { color: #E4405F; }
   }
 }
 

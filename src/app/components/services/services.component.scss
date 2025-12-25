@@ -48,8 +48,9 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(30px);
+  /* Visible by default to avoid SSR hydration issues */
+  opacity: 1;
+  transform: none;
 
   &::before {
     content: '';
@@ -66,9 +67,7 @@
 
   // Scroll animation trigger
   &.visible {
-    opacity: 1;
-    transform: translateY(0);
-    animation: cardSlideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: cardSlideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
 
     &::before {
       animation: lineExpand 0.6s 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -141,6 +140,16 @@
   margin-bottom: 1.5rem;
   display: inline-block;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ensure Material icons scale cleanly and don't clip */
+.service-icon mat-icon {
+  font-size: 3rem;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .service-title {
