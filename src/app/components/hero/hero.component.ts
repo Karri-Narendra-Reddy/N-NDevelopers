@@ -13,6 +13,7 @@ export class HeroComponent implements OnInit, AfterViewInit {
   projectCount = signal(0);
   satisfactionRate = signal(0);
   yearsExperience = signal(0);
+  clients = signal(0);
   private hasAnimated = false;
 
   constructor(
@@ -34,6 +35,7 @@ export class HeroComponent implements OnInit, AfterViewInit {
       this.projectCount.set(25);
       this.satisfactionRate.set(100);
       this.yearsExperience.set(15);
+      this.clients.set(1000);
       return;
     }
 
@@ -47,6 +49,7 @@ export class HeroComponent implements OnInit, AfterViewInit {
             this.projectCount.set(0);
             this.satisfactionRate.set(0);
             this.yearsExperience.set(0);
+            this.clients.set(0);
           }
         });
       },
@@ -63,6 +66,7 @@ export class HeroComponent implements OnInit, AfterViewInit {
     this.animateValue(this.projectCount, 0, 25, 2000);
     this.animateValue(this.satisfactionRate, 0, 100, 2000);
     this.animateValue(this.yearsExperience, 0, 15, 2000);
+    this.animateValue(this.clients, 0, 1000, 2000);
   }
 
   private animateValue(

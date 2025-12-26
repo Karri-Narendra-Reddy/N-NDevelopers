@@ -1,0 +1,217 @@
+.testimonials {
+  position: relative;
+  padding: 72px 0;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 280px at 50% -10%, color-mix(in srgb, var(--surface, #fff) 40%, transparent), transparent 60%),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--border, #dcdcdc) 24%, transparent) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--border, #dcdcdc) 18%, transparent) 0 1px, transparent 1px 40px);
+  mask: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000 14%, #000 86%, rgba(0,0,0,0) 100%);
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+
+.section-subtitle {
+  color: var(--text-secondary, #666);
+  margin: 0;
+}
+
+
+.carousel { position: relative; }
+
+.track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 8px 4px 16px;
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.track::-webkit-scrollbar { display: none; }
+
+.card {
+  flex: 0 0 calc(100% - 16px);
+  scroll-snap-align: start;
+  background: color-mix(in srgb, var(--surface, #fff) 82%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border, #dcdcdc) 55%, transparent);
+  border-radius: 18px;
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  backdrop-filter: saturate(1.05) blur(6px);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(800px 200px at var(--mx, 50%) -10%, rgba(255,255,255,0.7), transparent 40%);
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events: none;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 20px;
+  padding: 1px;
+  background:
+    linear-gradient(135deg, hsl(var(--h, 210) 90% 60% / .4), transparent 40%),
+    linear-gradient(315deg, hsl(calc(var(--h, 210) + 50) 90% 60% / .4), transparent 40%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+  border-color: color-mix(in srgb, var(--border, #dcdcdc) 85%, transparent);
+}
+
+.card:hover::before { opacity: 1; }
+
+.card-top {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.avatar-wrap { position: relative; width: 48px; height: 48px; }
+.avatar-ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: conic-gradient(from 180deg, hsl(var(--h, 210) 90% 60%), hsl(calc(var(--h, 210) + 60) 90% 60%), hsl(var(--h, 210) 90% 60%));
+  filter: blur(4px) saturate(1.2);
+  opacity: .65;
+}
+.avatar {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, hsl(var(--h, 210) 85% 55%), hsl(calc(var(--h, 210) + 50) 85% 55%));
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.22);
+}
+
+.meta .name { margin: 0; font-weight: 600; }
+.meta .role { margin: 2px 0 0; color: var(--text-secondary, #666); font-size: 14px; }
+
+.rating { display: flex; gap: 4px; align-items: center; }
+.star { font-size: 18px; color: #f59e0b; }
+.badge { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: #10b98120; color: #10b981; }
+
+.quote {
+  margin: 0;
+  line-height: 1.65;
+  color: var(--text-primary, #222);
+  font-size: 15.5px;
+  position: relative;
+  padding: 10px 0 4px 0;
+}
+
+.quote::before {
+  content: '“';
+  position: absolute;
+  left: -6px;
+  top: -12px;
+  font-size: 60px;
+  line-height: 1;
+  color: color-mix(in srgb, var(--text-secondary, #666) 20%, transparent);
+  pointer-events: none;
+}
+
+.card-footer {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-footer .company { display: inline-flex; align-items: center; gap: 6px; color: var(--text-secondary, #666); font-size: 13.5px; }
+.card-footer .company mat-icon { font-size: 18px; height: 18px; width: 18px; }
+.card-footer .sep { flex: 1; height: 1px; background: color-mix(in srgb, var(--border, #dcdcdc) 60%, transparent); }
+.card-footer .role-pill { padding: 6px 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--border, #dcdcdc) 60%, transparent); background: color-mix(in srgb, var(--surface, #fff) 92%, transparent); font-size: 12.5px; }
+
+@media (min-width: 600px) {
+  .card { flex-basis: calc(50% - 16px); }
+}
+
+@media (min-width: 992px) {
+  .card { flex-basis: calc(33.333% - 16px); }
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--border, #dcdcdc) 60%, transparent);
+  background: color-mix(in srgb, var(--surface, #fff) 88%, transparent);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+  transition: transform .2s ease, background .2s ease;
+  z-index: 1;
+}
+.nav:hover { transform: translateY(-50%) scale(1.04); }
+.nav:disabled { opacity: .4; cursor: not-allowed; }
+.nav.prev { left: -10px; }
+.nav.next { right: -10px; }
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--border, #dcdcdc) 70%, transparent);
+  border: none;
+  padding: 0;
+  transition: transform .2s ease, background .2s ease;
+}
+.dot.active {
+  transform: scale(1.25);
+  background: var(--accent-color, #6366f1);
+}

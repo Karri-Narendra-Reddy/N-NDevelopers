@@ -35,7 +35,12 @@
                 <span class="tag">{{ tag }}</span>
               }
             </div>
-            <h3 class="project-title">{{ project.title }}</h3>
+            <h3 class="project-title">
+              <span class="title-text">{{ project.title }}</span>
+              @if (project.stamp) {
+                <img class="title-stamp" src="/stamps/approved-stamp.PNG" alt="" aria-hidden="true">
+              }
+            </h3>
             <p class="project-description">{{ project.description }}</p>
           </div>
         </div>

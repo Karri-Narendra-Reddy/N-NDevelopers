@@ -15,6 +15,13 @@ import { MatIconModule } from '@angular/material/icon';
 export class HeaderComponent {
   isScrolled = signal(false);
   isMobileMenuOpen = signal(false);
+  isBrochureDropdownOpen = signal(false);
+
+  brochures = [
+    { name: 'Sri City', file: 'brochures/Sri City.pdf' },
+    { name: 'Sri Rangam', file: 'brochures/Sri Rangam.pdf' },
+    { name: 'Srinivasam', file: 'brochures/Srinivasam.pdf' }
+  ];
 
   navigationItems = [
     { label: 'Home', link: '#home', route: '/' },
@@ -70,16 +77,34 @@ export class HeaderComponent {
     this.themeService.toggleTheme();
   }
 
-  downloadBrochure(): void {
+  toggleBrochureDropdown(): void {
+    this.isBrochureDropdownOpen.update(value => !value);
+  }
+
+  closeBrochureDropdown(): void {
+    this.isBrochureDropdownOpen.set(false);
+  }
+
+  downloadBrochure(brochure: { name: string; file: string }): void {
     this.isMobileMenuOpen.set(false);
+    this.closeBrochureDropdown();
     
     // Create a temporary anchor element to trigger download
     const link = document.createElement('a');
-    link.href = 'brochure.pdf'; // PDF file should be placed in public folder
-    link.download = 'Naveen-Nikilesh-Constructions-Brochure.pdf';
+    link.href = brochure.file;
+    link.download = `${brochure.name}-Brochure.pdf`;
     link.target = '_blank';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.brochure-dropdown-container') && 
+        !target.closest('.mobile-brochure-container')) {
+      this.closeBrochureDropdown();
+    }
   }
 }

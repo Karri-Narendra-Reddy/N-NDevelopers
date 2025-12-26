@@ -1,0 +1,67 @@
+<section id="testimonials" class="testimonials" aria-labelledby="testimonials-title">
+  <div class="backdrop" aria-hidden="true"></div>
+  <div class="testimonials-container">
+    <div class="section-header">
+      <h2 id="testimonials-title" class="section-title">What Clients Say</h2>
+      <p class="section-subtitle">Real feedback from our recent projects</p>
+    </div>
+
+    <div class="carousel">
+      <button class="nav prev" (click)="prev()" [disabled]="currentIndex() === 0" aria-label="Previous testimonial">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+
+      <div class="track" #track (scroll)="onScroll()" (mousemove)="updateMouse($event)" (mouseleave)="resetMouse()">
+        @for (t of testimonials; track t.name) {
+          <article class="card" aria-label="Client testimonial" [style.--h]="hue(t.name)">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-top">
+              <div class="avatar-wrap" aria-hidden="true">
+                <div class="avatar-ring"></div>
+                <div class="avatar">
+                  <span>{{ t.name.charAt(0) }}</span>
+                </div>
+              </div>
+              <div class="meta">
+                <h3 class="name">{{ t.name }}</h3>
+                <p class="role">{{ t.role }} @ {{ t.company || 'Client' }}</p>
+              </div>
+              <div class="rating" aria-label="Rating">
+                @for (s of stars(t.rating); track s) {
+                  <mat-icon class="star" aria-hidden="true">star</mat-icon>
+                }
+                @if (t.rating >= 5) {
+                  <span class="badge" aria-label="Verified"><mat-icon>verified</mat-icon></span>
+                }
+              </div>
+            </div>
+
+            <p class="quote">
+              “{{ t.quote }}”
+            </p>
+
+            <footer class="card-footer">
+              <div class="company">
+                <mat-icon>business</mat-icon>
+                <span>{{ t.company || 'Private Client' }}</span>
+              </div>
+              <div class="sep"></div>
+              <div class="role-pill">{{ t.role }}</div>
+            </footer>
+          </article>
+        }
+      </div>
+
+      <button class="nav next" (click)="next()" [disabled]="currentIndex() >= maxIndex" aria-label="Next testimonial">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+
+      <div class="dots" role="tablist" aria-label="Testimonials pagination">
+        @for (p of pages(); track p) {
+          <button class="dot" [class.active]="currentIndex() === p" (click)="goTo(p)" role="tab" [attr.aria-selected]="currentIndex() === p">
+          </button>
+        }
+      </div>
+    </div>
+  </div>
+</section>

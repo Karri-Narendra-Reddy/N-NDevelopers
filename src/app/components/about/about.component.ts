@@ -11,14 +11,6 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
   private observer?: IntersectionObserver;
-  private statsObserver?: IntersectionObserver;
-  private hasAnimatedStats = false;
-
-  // Animated stat signals
-  projectsCompleted = signal(0);
-  yearsExperience = signal(0);
-  happyClients = signal(0);
-  teamMembers = signal(0);
   values = [
     {
       icon: 'track_changes',
@@ -46,27 +38,58 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   ];
 
-  team = [
+  amenities = [
     {
-      name: 'Naveen',
-      role: 'Co-Founder & Managing Director',
-      image: 'https://ui-avatars.com/api/?name=Naveen&size=200&background=6366f1&color=fff',
-      description: 'Expert in project management and construction planning'
+      icon: 'route',
+      title: '40 Feet CC Roads',
+      description: 'Wide concrete roads for smooth and safe transportation',
+      color: '#6366f1' // indigo
     },
     {
-      name: 'Nikilesh',
-      role: 'Co-Founder & Technical Director',
-      image: 'https://ui-avatars.com/api/?name=Nikilesh&size=200&background=8b5cf6&color=fff',
-      description: 'Specialist in land development and structural design'
+      icon: 'park',
+      title: 'Avenue Plantation',
+      description: 'Lush green tree-lined avenues for a refreshing environment',
+      color: '#22C55E' // green
+    },
+    {
+      icon: 'self_improvement',
+      title: 'Outdoor Yoga',
+      description: 'Dedicated space for yoga and meditation in nature',
+      color: '#7C3AED' // violet
+    },
+    {
+      icon: 'child_care',
+      title: 'Kids Play Area',
+      description: 'Safe and fun play zone for children with modern equipment',
+      color: '#F59E0B' // amber
+    },
+    {
+      icon: 'directions_walk',
+      title: '500 Mts Walking Track',
+      description: 'Well-maintained walking track for fitness enthusiasts',
+      color: '#06B6D4' // cyan
+    },
+    {
+      icon: 'filter_vintage',
+      title: '100% Vaastu',
+      description: 'All plots designed according to Vastu Shastra principles',
+      color: '#EC4899' // pink
+    },
+    {
+      icon: 'videocam',
+      title: '24/7 CCTV Surveillance',
+      description: 'Round-the-clock security monitoring for your safety',
+      color: '#EF4444' // red
+    },
+    {
+      icon: 'fence',
+      title: 'Compound Walls',
+      description: 'Fully secured with compound walls for complete protection',
+      color: '#8B5CF6' // purple
     }
   ];
 
-  achievements = [
-    { number: '25+', label: 'Projects Completed' },
-    { number: '15+', label: 'Years Experience' },
-    { number: '1000+', label: 'Happy Clients' },
-    { number: '50+', label: 'Expert Team Members' }
-  ];
+  // Removed achievements array as it's replaced by amenities
 
   constructor(
     private elementRef: ElementRef,
@@ -77,15 +100,11 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.setupScrollAnimations();
-    this.setupStatsAnimation();
   }
 
   ngOnDestroy(): void {
     if (this.observer) {
       this.observer.disconnect();
-    }
-    if (this.statsObserver) {
-      this.statsObserver.disconnect();
     }
   }
 
@@ -111,73 +130,8 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // Use setTimeout to defer observation until next frame
     setTimeout(() => {
-      const cards = this.elementRef.nativeElement.querySelectorAll('.value-card, .mission-card, .vision-card, .team-card, .stat-card');
+      const cards = this.elementRef.nativeElement.querySelectorAll('.value-card, .mission-card, .vision-card, .amenity-card');
       cards.forEach((card: Element) => this.observer?.observe(card));
     }, 100);
-  }
-
-  private setupStatsAnimation(): void {
-    if (!isPlatformBrowser(this.platformId)) {
-      // Set final values immediately on server
-      this.projectsCompleted.set(25);
-      this.yearsExperience.set(15);
-      this.happyClients.set(1000);
-      this.teamMembers.set(50);
-      return;
-    }
-
-    const options = {
-      threshold: 0.3,
-      rootMargin: '0px'
-    };
-
-    this.statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !this.hasAnimatedStats) {
-          this.hasAnimatedStats = true;
-          this.animateCounters();
-          // Stop observing once animated
-          this.statsObserver?.unobserve(entry.target);
-        }
-      });
-    }, options);
-
-    setTimeout(() => {
-      const achievementsSection = this.elementRef.nativeElement.querySelector('.achievements-grid');
-      if (achievementsSection && this.statsObserver) {
-        this.statsObserver.observe(achievementsSection);
-      }
-    }, 100);
-  }
-
-  private animateCounters(): void {
-    this.animateValue(this.projectsCompleted, 0, 25, 2000);
-    this.animateValue(this.yearsExperience, 0, 15, 2000);
-    this.animateValue(this.happyClients, 0, 1000, 2500);
-    this.animateValue(this.teamMembers, 0, 50, 2000);
-  }
-
-  private animateValue(
-    signal: any,
-    start: number,
-    end: number,
-    duration: number
-  ): void {
-    const startTime = performance.now();
-    const step = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const easeOutQuart = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(start + (end - start) * easeOutQuart);
-      signal.set(current);
-
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        // Ensure final value is set
-        signal.set(end);
-      }
-    };
-    requestAnimationFrame(step);
   }
 }

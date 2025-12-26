@@ -34,48 +34,7 @@
       </div>
       
       <div class="header-actions">
-        <button class="action-btn" (click)="toggleInfo()" [class.active]="showInfo()" aria-label="Toggle info">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="16" x2="12" y2="12"></line>
-            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-          </svg>
-        </button>
-        
-        <button class="action-btn" (click)="shareImage()" aria-label="Share">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="18" cy="5" r="3"></circle>
-            <circle cx="6" cy="12" r="3"></circle>
-            <circle cx="18" cy="19" r="3"></circle>
-            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-          </svg>
-        </button>
-        
-        <button class="action-btn" (click)="downloadImage()" aria-label="Download">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-        </button>
-        
-        <button class="action-btn" (click)="toggleFullscreen()" aria-label="Fullscreen">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            @if (!isFullscreen()) {
-              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
-            } @else {
-              <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
-            }
-          </svg>
-        </button>
-        
-        <button class="close-btn" (click)="closeGallery()" aria-label="Close gallery">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
+        <!-- Action buttons moved to hover over image -->
       </div>
     </div>
 
@@ -101,6 +60,26 @@
               (click)="toggleZoom()"
               loading="lazy">
           }
+          
+          <!-- Hover Action Buttons -->
+          <div class="image-hover-actions">
+            <button class="hover-action-btn" (click)="toggleFullscreen()" aria-label="Fullscreen">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                @if (!isFullscreen()) {
+                  <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                } @else {
+                  <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
+                }
+              </svg>
+            </button>
+            
+            <button class="hover-close-btn" (click)="closeGallery()" aria-label="Close gallery">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
           
           <!-- Image Controls Overlay -->
           <div class="image-controls">
@@ -150,71 +129,12 @@
       </div>
     </div>
 
-    <!-- Project Details with Toggle -->
-    <div class="gallery-footer" [class.expanded]="showInfo()">
+    <!-- Simplified Footer - No expandable details -->
+    <div class="gallery-footer">
       <div class="footer-content">
         <div class="description-section">
-          <h3 class="section-title">About This Project</h3>
           <p class="project-description">{{ project?.description }}</p>
         </div>
-        
-        @if (showInfo()) {
-          <div class="details-grid">
-            @if (project?.client) {
-              <div class="detail-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                <div>
-                  <span class="detail-label">Client</span>
-                  <span class="detail-value">{{ project?.client }}</span>
-                </div>
-              </div>
-            }
-            
-            @if (project?.year) {
-              <div class="detail-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                <div>
-                  <span class="detail-label">Year</span>
-                  <span class="detail-value">{{ project?.year }}</span>
-                </div>
-              </div>
-            }
-            
-            @if (project?.location) {
-              <div class="detail-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <div>
-                  <span class="detail-label">Location</span>
-                  <span class="detail-value">{{ project?.location }}</span>
-                </div>
-              </div>
-            }
-            
-            <!-- @if (project?.category) {
-              <div class="detail-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-                <div>
-                  <span class="detail-label">Category</span>
-                  <span class="detail-value">{{ project?.category | uppercase }}</span>
-                </div>
-              </div>
-            } -->
-          </div>
-        }
         
         <div class="project-tags">
           @for (tag of project?.tags; track tag) {
