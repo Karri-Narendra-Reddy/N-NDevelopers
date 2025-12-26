@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
 
 type Testimonial = {
   name: string;
@@ -8,12 +10,13 @@ type Testimonial = {
   company?: string;
   rating: number; // 1-5
   quote: string;
+  videoUrl?: string; // YouTube embed URL
 };
 
 @Component({
   selector: 'app-testimonials',
   standalone: true,
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule, MatIconModule, SafeUrlPipe],
   templateUrl: './testimonials.component.html',
   styleUrls: ['./testimonials.component.scss']
 })
@@ -28,31 +31,35 @@ export class TestimonialsComponent implements AfterViewInit, OnDestroy {
       company: 'Private Client',
       rating: 5,
       quote:
-        'Exceptional workmanship and transparent communication throughout. The team delivered on time with premium quality.'
+        'Exceptional workmanship and transparent communication throughout. The team delivered on time with premium quality.',
+      videoUrl: 'https://www.youtube.com/embed/ugzfxhtz5H8?si=Za8RlKyiWOFaNdBO' // Replace with actual YouTube embed URL
     },
     {
-      name: 'Priya Sharma',
+      name: 'Narendra Reddy',
       role: 'Entrepreneur',
       company: 'Retail Fitout',
       rating: 5,
       quote:
-        'They transformed our space beautifully. Professional, detail‑oriented, and incredibly reliable from start to finish.'
+        'They transformed our space beautifully. Professional, detail‑oriented, and incredibly reliable from start to finish.',
+      videoUrl: 'https://www.youtube.com/embed/ugzfxhtz5H8?si=Za8RlKyiWOFaNdBO' // Replace with actual YouTube embed URL
     },
     {
-      name: 'Rahul Verma',
+      name: 'Sai Venkata Srinivasa Reddy',
       role: 'Developer',
       company: 'Land Development',
       rating: 4,
       quote:
-        'Strong planning and execution. Permits, layouts, and delivery were handled smoothly with minimal friction.'
+        'Strong planning and execution. Permits, layouts, and delivery were handled smoothly with minimal friction.',
+      videoUrl: 'https://www.youtube.com/embed/ugzfxhtz5H8?si=Za8RlKyiWOFaNdBO' // Replace with actual YouTube embed URL
     },
     {
-      name: 'Anusha K',
+      name: 'Santhosh G',
       role: 'Architect',
       company: 'Design Partner',
       rating: 5,
       quote:
-        'A great partner to collaborate with—quality craftsmanship, clear specs adherence, and responsive site management.'
+        'A great partner to collaborate with—quality craftsmanship, clear specs adherence, and responsive site management.',
+      videoUrl: 'https://www.youtube.com/embed/ugzfxhtz5H8?si=Za8RlKyiWOFaNdBO' // Replace with actual YouTube embed URL
     }
   ];
 
@@ -126,10 +133,8 @@ export class TestimonialsComponent implements AfterViewInit, OnDestroy {
   }
 
   private updateSlidesPerView(): void {
-    const w = window.innerWidth;
-    if (w >= 992) this.slidesPerView.set(3);
-    else if (w >= 600) this.slidesPerView.set(2);
-    else this.slidesPerView.set(1);
+    // Always show 1 card at a time regardless of screen size
+    this.slidesPerView.set(1);
     // Clamp current index if needed
     this.currentIndex.set(Math.min(this.currentIndex(), this.maxIndex));
   }

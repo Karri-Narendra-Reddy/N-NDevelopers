@@ -3,7 +3,7 @@
   <div class="testimonials-container">
     <div class="section-header">
       <h2 id="testimonials-title" class="section-title">What Clients Say</h2>
-      <p class="section-subtitle">Real feedback from our recent projects</p>
+      <p class="section-subtitle">Feedback from our recent projects</p>
     </div>
 
     <div class="carousel">
@@ -27,9 +27,7 @@
                 <p class="role">{{ t.role }} @ {{ t.company || 'Client' }}</p>
               </div>
               <div class="rating" aria-label="Rating">
-                @for (s of stars(t.rating); track s) {
-                  <mat-icon class="star" aria-hidden="true">star</mat-icon>
-                }
+                <span class="rating-text">{{ t.rating }}/5</span>
                 @if (t.rating >= 5) {
                   <span class="badge" aria-label="Verified"><mat-icon>verified</mat-icon></span>
                 }
@@ -39,7 +37,18 @@
             <p class="quote">
               “{{ t.quote }}”
             </p>
-
+            @if (t.videoUrl) {
+              <div class="video-container">
+                <iframe 
+                  [src]="t.videoUrl | safeUrl" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen
+                  loading="lazy"
+                  title="Client testimonial video">
+                </iframe>
+              </div>
+            }
             <footer class="card-footer">
               <div class="company">
                 <mat-icon>business</mat-icon>
