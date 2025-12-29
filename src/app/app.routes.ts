@@ -6,11 +6,11 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'ConstructPro - Building Dreams Into Reality'
+    title: 'Naveen & Nikilesh Constructions'
   },
   {
     path: 'projects',
     component: ProjectsPageComponent,
-    title: 'Our Projects - ConstructPro'
+    title: 'Our Projects - Naveen & Nikilesh Constructions'
   }
 ];

@@ -68,4 +68,17 @@ export class HeaderComponent {
   onThemeToggle(): void {
     this.themeService.toggleTheme();
   }
+
+  downloadBrochure(): void {
+    this.isMobileMenuOpen.set(false);
+    
+    // Create a temporary anchor element to trigger download
+    const link = document.createElement('a');
+    link.href = 'brochure.pdf'; // PDF file should be placed in public folder
+    link.download = 'Naveen-Nikilesh-Constructions-Brochure.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 }

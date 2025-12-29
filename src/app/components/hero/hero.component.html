@@ -1,4 +1,14 @@
 <section id="home" class="hero" [class.visible]="isVisible()">
+  <!-- Full Screen Banner Image Section -->
+  <div class="hero-banner">
+    <img src="hero-bg.jpg" alt="Construction Banner" class="banner-image" />
+    <div class="banner-overlay">
+      <h2 class="banner-title">Naveen & Nikilesh Constructions</h2>
+      <p class="banner-tagline">Excellence in Every Build</p>
+    </div>
+  </div>
+
+  <!-- Hero Content Section -->
   <div class="hero-container">
     <div class="hero-content">
       <h1 class="hero-title">
@@ -36,16 +46,22 @@
     </div>
 
     <div class="hero-visual">
-      <div class="visual-card card-1"></div>
-      <div class="visual-card card-2"></div>
-      <div class="visual-card card-3"></div>
+      <div class="visual-card card-1">
+        <img src="visual1.jpg" alt="Featured Project 1" class="card-image" />
+      </div>
+      <div class="visual-card card-2">
+        <img src="visual2.jpg" alt="Featured Project 2" class="card-image" />
+      </div>
+      <div class="visual-card card-3">
+        <img src="hero-bg.jpg" alt="Featured Project 3" class="card-image" />
+      </div>
     </div>
   </div>
 
-  <div class="scroll-indicator">
+  <!-- <div class="scroll-indicator">
     <span class="scroll-text">Scroll to explore</span>
     <div class="scroll-icon">
       <div class="scroll-wheel"></div>
     </div>
-  </div>
+  </div> -->
 </section>
