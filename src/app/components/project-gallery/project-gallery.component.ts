@@ -14,6 +14,7 @@ interface Project {
   year?: string;
   client?: string;
   brochure?: string;
+  stamp?: boolean;
 }
 
 @Component({
@@ -71,7 +72,6 @@ export class ProjectGalleryComponent {
   currentImageIndex = signal<number>(0);
   isZoomed = signal<boolean>(false);
   isFullscreen = signal<boolean>(false);
-  showInfo = signal<boolean>(false);
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -100,51 +100,7 @@ export class ProjectGalleryComponent {
     }
   }
 
-  downloadImage() {
-    if (!this.project) return;
-    
-    // Download brochure from public folder
-    const brochureUrl = this.project.brochure || `/brochures/${this.project.title.replace(/\s+/g, '-').toLowerCase()}-brochure.pdf`;
-    const link = document.createElement('a');
-    link.href = brochureUrl;
-    link.download = `${this.project.title}-Brochure.pdf`;
-    link.target = '_blank';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-
-  shareImage() {
-    if (!isPlatformBrowser(this.platformId) || !this.project?.gallery) return;
-    
-    const imageUrl = this.project.gallery[this.currentImageIndex()];
-    const shareData = {
-      title: this.project.title,
-      text: this.project.description,
-      url: window.location.href
-    };
-
-    if (navigator.share) {
-      navigator.share(shareData).catch(() => {
-        this.copyToClipboard(imageUrl);
-      });
-    } else {
-      this.copyToClipboard(imageUrl);
-    }
-  }
-
-  private copyToClipboard(text: string) {
-    if (!isPlatformBrowser(this.platformId)) return;
-    
-    navigator.clipboard.writeText(text).then(() => {
-      // Could add a toast notification here
-      console.log('Link copied to clipboard!');
-    });
-  }
-
-  toggleInfo() {
-    this.showInfo.update(show => !show);
-  }
+  // Removed download, share, and toggleInfo methods
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {

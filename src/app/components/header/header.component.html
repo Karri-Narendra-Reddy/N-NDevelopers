@@ -2,8 +2,8 @@
   <div class="header-container">
     <div class="logo">
       <!-- Replace logo.png with your actual logo file in public folder -->
-      <img src="logo.jpg" alt="Naveen & Nikilesh Constructions" class="logo-image" />
-      <span class="logo-text">Naveen & Nikilesh Constructions</span>
+      <img src="logo.PNG" alt="Navin & Nikilesh Constructions" class="logo-image" />
+      <span class="logo-text">Navin & Nikilesh Constructions</span>
     </div>
 
     <!-- Desktop Navigation -->
@@ -11,10 +11,50 @@
       @for (item of navigationItems; track item.label) {
         <a (click)="navigateTo(item)" class="nav-link">{{ item.label }}</a>
       }
+      
+      <!-- Brochure Dropdown -->
+      <div class="brochure-dropdown-container">
+        <button class="nav-link brochure-btn" (click)="toggleBrochureDropdown()">
+          Brochures
+          <mat-icon class="dropdown-icon" [class.open]="isBrochureDropdownOpen()">
+            {{ isBrochureDropdownOpen() ? 'expand_less' : 'expand_more' }}
+          </mat-icon>
+        </button>
+        
+        @if (isBrochureDropdownOpen()) {
+          <div class="brochure-dropdown-menu">
+            @for (brochure of brochures; track brochure.name) {
+              <button class="brochure-item" (click)="downloadBrochure(brochure)">
+                <mat-icon>download</mat-icon>
+                <span>{{ brochure.name }}</span>
+              </button>
+            }
+          </div>
+        }
+      </div>
     </nav>
 
     <!-- Theme Toggle & Mobile Menu Button -->
     <div class="header-actions">
+      <!-- Mobile Brochure Dropdown -->
+      <div class="mobile-brochure-container">
+        <button class="mobile-brochure-btn" (click)="toggleBrochureDropdown()" 
+                [attr.aria-label]="'Download Brochures'">
+          <mat-icon>description</mat-icon>
+        </button>
+        
+        @if (isBrochureDropdownOpen()) {
+          <div class="mobile-brochure-dropdown">
+            @for (brochure of brochures; track brochure.name) {
+              <button class="mobile-brochure-item" (click)="downloadBrochure(brochure)">
+                <mat-icon>download</mat-icon>
+                <span>{{ brochure.name }}</span>
+              </button>
+            }
+          </div>
+        }
+      </div>
+
       <button class="theme-toggle" (click)="onThemeToggle()" 
               [class.dark]="themeService.isDarkMode()"
               [attr.aria-label]="themeService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'">

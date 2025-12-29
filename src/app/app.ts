@@ -16,5 +16,5 @@ import { BottomNavComponent } from './components/bottom-nav/bottom-nav.component
   styleUrl: './app.scss'
 })
 export class App {
-  title = 'Naveen & Nikilesh Developers';
+  title = 'Navin & Nikilesh Constructions';
 }

@@ -14,6 +14,7 @@ export interface Project {
   location?: string;
   year?: string;
   client?: string;
+  stamp?: boolean;
 }
 
 interface ProjectsData {

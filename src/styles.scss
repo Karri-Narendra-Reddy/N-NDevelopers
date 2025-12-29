@@ -30,6 +30,9 @@ html {
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
   --bg-tertiary: #e9ecef;
+  /* Surface + Border tokens used by components */
+  --surface: #ffffff;
+  --border: #e5e7eb;
   
   --text-primary: #1a1a1a;
   --text-secondary: #6c757d;
@@ -51,6 +54,9 @@ html {
   --bg-primary: #0a0a0a;
   --bg-secondary: #1a1612;
   --bg-tertiary: #2a2419;
+  /* Surface + Border tokens used by components */
+  --surface: #121212;
+  --border: #3a3020;
   
   --text-primary: #ffffff;
   --text-secondary: #f5f5f5;

@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="story-image">
-          <img src="about.jpg" alt="Naveen & Nikilesh Developers" class="about-image" />
+          <img src="about.jpg" alt="Navin & Nikilesh Constructions" class="about-image" />
         </div>
       </div>
     </div>
@@ -110,27 +110,23 @@
     </div>
   </div> -->
 
-  <!-- Achievements Section -->
-  <div class="achievements-section">
-    <div class="achievements-container">
-      <h2 class="section-title">Our Achievements</h2>
-      <div class="achievements-grid">
-        <div class="achievement-card">
-          <div class="achievement-number">{{ projectsCompleted() }}+</div>
-          <div class="achievement-label">Projects Completed</div>
-        </div>
-        <div class="achievement-card">
-          <div class="achievement-number">{{ yearsExperience() }}+</div>
-          <div class="achievement-label">Years Experience</div>
-        </div>
-        <div class="achievement-card">
-          <div class="achievement-number">{{ happyClients() }}+</div>
-          <div class="achievement-label">Happy Clients</div>
-        </div>
-        <div class="achievement-card">
-          <div class="achievement-number">{{ teamMembers() }}+</div>
-          <div class="achievement-label">Expert Team Members</div>
-        </div>
+  <!-- Amenities Section -->
+  <div class="amenities-section">
+    <div class="amenities-container">
+      <div class="section-header">
+        <h2 class="section-title">Amenities</h2>
+        <p class="section-subtitle">Premium features designed for modern living</p>
+      </div>
+      <div class="amenities-grid">
+        @for (amenity of amenities; track amenity.title) {
+          <div class="amenity-card">
+            <div class="amenity-icon">
+              <mat-icon [ngStyle]="{ color: amenity.color }">{{ amenity.icon }}</mat-icon>
+            </div>
+            <h3 class="amenity-title">{{ amenity.title }}</h3>
+            <p class="amenity-description">{{ amenity.description }}</p>
+          </div>
+        }
       </div>
     </div>
   </div>
