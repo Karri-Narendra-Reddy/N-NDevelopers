@@ -1,0 +1,202 @@
+/* Floating glassy bottom nav for mobile */
+.bottom-nav {
+  position: fixed;
+  left: 50%;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 1002;
+  width: min(560px, 92vw);
+
+  display: none; /* default hidden on desktop */
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.bottom-nav__track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--count), 1fr);
+  align-items: center;
+  gap: 0;
+  height: 68px;
+  padding: 6px;
+  border-radius: 24px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  will-change: transform, box-shadow, background;
+
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.6);
+
+  /* Subtle ambient glow and highlight */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.3));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -6px -12px;
+    border-radius: 30px;
+    background: radial-gradient(60% 100% at 50% 100%, rgba(99,102,241,0.20) 0%, transparent 70%);
+    filter: blur(12px);
+    pointer-events: none;
+    opacity: 0.9;
+  }
+}
+
+:host-context([data-theme="dark"]) .bottom-nav__track {
+  background: rgba(12, 12, 12, 0.55);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.06);
+
+  &::after {
+    background: radial-gradient(60% 100% at 50% 100%, rgba(244,196,106,0.18) 0%, transparent 70%);
+  }
+}
+
+.bottom-nav__indicator {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 26px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.9);
+  transition: left 240ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+
+  /* Shimmer highlight sweep */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -30%;
+    width: 30%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+    filter: blur(6px);
+    animation: shine 2800ms linear infinite;
+    pointer-events: none;
+  }
+}
+
+:host-context([data-theme="dark"]) .bottom-nav__indicator {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.bottom-nav__item {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  height: 52px;
+  border-radius: 10px;
+  color: #000000; /* gold for light mode */
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 180ms ease, color 200ms ease;
+  will-change: transform, color;
+}
+
+.bottom-nav__item.hover,
+.bottom-nav__item.active {
+  color: #007aff; /* Blue on hover/drag-active/active */
+}
+
+.bottom-nav__item.active {
+  transform: translateY(-1px);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+}
+
+.bottom-nav__item .icon {
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1), color 200ms ease;
+}
+
+.bottom-nav__item .icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.bottom-nav__item .label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #000000; /* gold label in light mode */
+  letter-spacing: 0.015em;
+}
+
+.bottom-nav__item.hover .label,
+.bottom-nav__item.active .label {
+  color: #007aff; /* Blue label on hover/drag-active/active */
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+}
+
+.bottom-nav__item:active .icon {
+  transform: scale(0.96);
+}
+
+.bottom-nav__item.active .icon {
+  transform: scale(1.06);
+  color: #007aff; /* Blue icon when active */
+}
+
+.bottom-nav__item.hover .icon {
+  color: #007aff; /* Blue icon when drag-hovering */
+}
+
+/* Dark mode overrides: make icons/text white */
+:host-context([data-theme="dark"]) .bottom-nav__item,
+:host-context([data-theme="dark"]) .bottom-nav__item .label,
+:host-context([data-theme="dark"]) .bottom-nav__item.active,
+:host-context([data-theme="dark"]) .bottom-nav__item.active .label,
+:host-context([data-theme="dark"]) .bottom-nav__item.active .icon {
+  color: #ffffff;
+}
+
+/* Ensure blue takes precedence in dark mode on hover/press/active */
+:host-context([data-theme="dark"]) .bottom-nav__item.hover,
+:host-context([data-theme="dark"]) .bottom-nav__item.active,
+:host-context([data-theme="dark"]) .bottom-nav__item.hover .label,
+:host-context([data-theme="dark"]) .bottom-nav__item.active .label,
+:host-context([data-theme="dark"]) .bottom-nav__item.hover .icon,
+:host-context([data-theme="dark"]) .bottom-nav__item.active .icon {
+  color: #007aff; /* Ensure blue takes precedence in dark mode on hover/active */
+}
+
+@keyframes shine {
+  0% { transform: translateX(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateX(380%); opacity: 0; }
+}

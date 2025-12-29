@@ -13,11 +13,6 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
 
   services = [
     {
-      icon: '🏗️',
-      title: 'General Construction',
-      description: 'Complete building construction services from foundation to finishing'
-    },
-    {
       icon: '🏘️',
       title: 'Land Development',
       description: 'Site planning, grading, utilities, and infrastructure development'
@@ -31,11 +26,6 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
       icon: '🏡',
       title: 'Residential Building',
       description: 'Custom homes, apartments, and residential communities'
-    },
-    {
-      icon: '🔧',
-      title: 'Renovation & Remodeling',
-      description: 'Interior and exterior renovations for all property types'
     },
     {
       icon: '📐',

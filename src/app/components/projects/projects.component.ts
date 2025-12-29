@@ -25,11 +25,10 @@ export class ProjectsComponent implements AfterViewInit, OnDestroy {
   
   categories = [
     { id: 'all', label: 'All Projects' },
-    { id: 'residential', label: 'Residential' },
-    { id: 'commercial', label: 'Commercial' },
     { id: 'land-development', label: 'Land Development' },
-    { id: 'renovation', label: 'Renovation' }
-  ];
+    { id: 'residential', label: 'Residential' },
+    { id: 'commercial', label: 'Commercial' }
+    ];
 
   projects: Project[] = [
     {

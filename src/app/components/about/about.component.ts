@@ -30,11 +30,6 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
       description: 'We respect deadlines and ensure all projects are completed on schedule without delays.'
     },
     {
-      icon: '💰',
-      title: 'Transparent Pricing',
-      description: 'Clear, upfront pricing with no hidden costs. You know exactly what you\'re paying for.'
-    },
-    {
       icon: '🤝',
       title: 'Client Focus',
       description: 'Your vision is our mission. We work closely with clients to bring their dreams to life.'
@@ -43,11 +38,6 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
       icon: '🏗️',
       title: 'Expert Team',
       description: 'Skilled professionals with years of experience in construction and development.'
-    },
-    {
-      icon: '♻️',
-      title: 'Sustainable',
-      description: 'Eco-friendly practices and sustainable building methods for a better tomorrow.'
     }
   ];
 
@@ -67,7 +57,7 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   achievements = [
-    { number: '500+', label: 'Projects Completed' },
+    { number: '25+', label: 'Projects Completed' },
     { number: '15+', label: 'Years Experience' },
     { number: '1000+', label: 'Happy Clients' },
     { number: '50+', label: 'Expert Team Members' }
@@ -124,7 +114,7 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
   private setupStatsAnimation(): void {
     if (!isPlatformBrowser(this.platformId)) {
       // Set final values immediately on server
-      this.projectsCompleted.set(500);
+      this.projectsCompleted.set(25);
       this.yearsExperience.set(15);
       this.happyClients.set(1000);
       this.teamMembers.set(50);
@@ -156,7 +146,7 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private animateCounters(): void {
-    this.animateValue(this.projectsCompleted, 0, 500, 2000);
+    this.animateValue(this.projectsCompleted, 0, 25, 2000);
     this.animateValue(this.yearsExperience, 0, 15, 2000);
     this.animateValue(this.happyClients, 0, 1000, 2500);
     this.animateValue(this.teamMembers, 0, 50, 2000);

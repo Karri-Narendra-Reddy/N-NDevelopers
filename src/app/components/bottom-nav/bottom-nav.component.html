@@ -1,0 +1,24 @@
+<div class="bottom-nav">
+  <div #track class="bottom-nav__track" [style.--count]="items.length"
+       (pointerdown)="onPointerDown($event)" (pointermove)="onPointerMove($event)" (pointerup)="onPointerUp($event)" (pointercancel)="onPointerCancel($event)">
+    <div class="bottom-nav__indicator"
+         [style.width.%]="100 / items.length"
+         [style.left.%]="(100 / items.length) * activeIndex()"></div>
+
+    <div class="bottom-nav__item" *ngFor="let item of items; let i = index" (click)="navigateTo(i)" [class.active]="activeIndex() === i" [class.hover]="isDragging && activeIndex() === i" role="button" [attr.aria-label]="item.label" [attr.aria-current]="activeIndex() === i ? 'page' : null">
+      <span class="icon" aria-hidden="true">
+        <!-- Home -->
+        <svg *ngIf="item.icon === 'home'" viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-10.5Z"/></svg>
+        <!-- About (person/info) -->
+        <svg *ngIf="item.icon === 'about'" viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0-0.001-8.001A4 4 0 0 0 12 12Zm7 9H5v-1a7 7 0 0 1 14 0v1Z"/></svg>
+        <!-- Projects (grid) -->
+        <svg *ngIf="item.icon === 'projects'" viewBox="0 0 24 24"><path d="M3 4h8v8H3V4Zm10 0h8v8h-8V4ZM3 14h8v6H3v-6Zm10 0h8v6h-8v-6Z"/></svg>
+        <!-- Services (tools cog) simplified -->
+        <svg *ngIf="item.icon === 'services'" viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm8 4-2 1 .5 2.2-2.1.9-1.4-1.7-2 1.2-1-2.3-2.3.2.3-2.3-2.1-.9 1.5-1.9-1.5-1.9 2.1-.9-.3-2.3 2.3.2 1-2.3 2 1.2 1.4-1.7 2.1.9L20 8l2 1-2 1Z"/></svg>
+        <!-- Contact (phone/mail) simplified -->
+        <svg *ngIf="item.icon === 'contact'" viewBox="0 0 24 24"><path d="M21 8v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8l9 6 9-6Zm-9 4L3 6h18l-9 6Z"/></svg>
+      </span>
+      <span class="label">{{ item.label }}</span>
+    </div>
+  </div>
+</div>
