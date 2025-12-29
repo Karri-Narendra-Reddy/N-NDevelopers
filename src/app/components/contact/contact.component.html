@@ -8,16 +8,16 @@
         </p>
 
         <div class="info-items">
-          <div class="info-item">
-            <div class="info-icon">📍</div>
+          <div class="info-item location">
+            <div class="info-icon"><fa-icon [icon]="faLocationDot" aria-hidden="true"></fa-icon></div>
             <div class="info-text">
               <h4>Location</h4>
               <p>Sri City, main road, Pasalapudi - Ramachandrapuram</p>
             </div>
           </div>
 
-          <div class="info-item">
-            <div class="info-icon">📧</div>
+          <div class="info-item email">
+            <div class="info-icon"><fa-icon [icon]="faEnvelope" aria-hidden="true"></fa-icon></div>
             <div class="info-text">
               <h4>Email</h4>
               <p>navinandnikileshconstructions@gmail.com</p>
@@ -25,26 +25,31 @@
           </div>
 
           <div class="info-item">
-            <div class="info-icon">📞</div>
+            <div class="info-icon"><mat-icon>call</mat-icon></div>
             <div class="info-text">
               <h4>Phone</h4>
               <p>+91 9490646336</p>
             </div>
           </div>
 
-          <div class="info-item">
-            <div class="info-icon">💬</div>
+          <div class="info-item whatsapp">
+            <div class="info-icon">      
+              <fa-icon [icon]="faWhatsapp" class="whatsapp-icon" aria-hidden="true"></fa-icon>
+            </div>
             <div class="info-text">
               <h4>WhatsApp</h4>
-              <a href="https://wa.me/919490646336" target="_blank" class="contact-link">Chat with us on WhatsApp</a>
+              <p> <a href="https://wa.me/919490646336" target="_blank" class="contact-link">Chat with us on WhatsApp</a>
+              </p>
             </div>
           </div>
 
-          <div class="info-item">
-            <div class="info-icon">📱</div>
+          <div class="info-item instagram">
+            <div class="info-icon"><fa-icon [icon]="faInstagram" aria-hidden="true"></fa-icon></div>
             <div class="info-text">
               <h4>Instagram</h4>
-              <a href="https://instagram.com/NaveenandNikileshDevelopers" target="_blank" class="contact-link">@NaveenandNikileshDevelopers</a>
+              <p>
+                <a href="https://instagram.com/NaveenandNikileshDevelopers" target="_blank" class="contact-link">@NaveenandNikileshDevelopers</a>
+              </p>              
             </div>
           </div>
         </div>
@@ -107,7 +112,7 @@
         <button type="submit" class="submit-btn" [disabled]="isSubmitting">
           <span>{{ isSubmitting ? 'Sending...' : 'Send Message' }}</span>
           @if (!isSubmitting) {
-            <span class="btn-arrow">→</span>
+            <mat-icon class="btn-arrow" aria-hidden="true">arrow_forward</mat-icon>
           }
         </button>
       </form>
@@ -120,7 +125,7 @@
     <div class="footer-content">
       <div class="footer-brand">
         <div class="logo">
-          <img src="logo.png" alt="Naveen & Nikilesh Developers" class="logo-image" />
+          <img src="logo.jpg" alt="Naveen & Nikilesh Developers" class="logo-image" />
           <span class="logo-text">Naveen & Nikilesh Developers</span>
         </div>
         <p>Building excellence since 2010</p>
@@ -136,9 +141,9 @@
 
         <div class="link-group">
           <h4>Contact</h4>
-          <a href="#contact">Get in Touch</a>
-          <a href="https://wa.me/919490646336" target="_blank">WhatsApp</a>
-          <a href="https://instagram.com/naveen_nikilesh_developers" target="_blank">Instagram</a>
+          <a href="#contact" class="email-link"><fa-icon [icon]="faEnvelope" aria-hidden="true"></fa-icon> Get in Touch</a>
+          <a href="https://wa.me/919490646336" target="_blank" class="whatsapp-link"><fa-icon [icon]="faWhatsapp" aria-hidden="true"></fa-icon> WhatsApp</a>
+          <a href="https://instagram.com/naveen_nikilesh_developers" target="_blank" class="instagram-link"><fa-icon [icon]="faInstagram" aria-hidden="true"></fa-icon> Instagram</a>
         </div>
 
         <div class="link-group">

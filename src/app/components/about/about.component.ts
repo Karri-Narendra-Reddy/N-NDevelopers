@@ -1,10 +1,11 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, signal, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatIconModule],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
@@ -20,24 +21,28 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
   teamMembers = signal(0);
   values = [
     {
-      icon: '🎯',
+      icon: 'track_changes',
       title: 'Quality First',
-      description: 'We never compromise on quality. Every project is executed with precision and attention to detail.'
+      description: 'We never compromise on quality. Every project is executed with precision and attention to detail.',
+      color: '#7C3AED' // violet
     },
     {
-      icon: '⏱️',
+      icon: 'schedule',
       title: 'Timely Delivery',
-      description: 'We respect deadlines and ensure all projects are completed on schedule without delays.'
+      description: 'We respect deadlines and ensure all projects are completed on schedule without delays.',
+      color: '#06B6D4' // cyan
     },
     {
-      icon: '🤝',
+      icon: 'groups',
       title: 'Client Focus',
-      description: 'Your vision is our mission. We work closely with clients to bring their dreams to life.'
+      description: 'Your vision is our mission. We work closely with clients to bring their dreams to life.',
+      color: '#22C55E' // green
     },
     {
-      icon: '🏗️',
+      icon: 'engineering',
       title: 'Expert Team',
-      description: 'Skilled professionals with years of experience in construction and development.'
+      description: 'Skilled professionals with years of experience in construction and development.',
+      color: '#F59E0B' // amber
     }
   ];
 

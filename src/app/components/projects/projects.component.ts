@@ -1,20 +1,13 @@
 import { Component, signal, AfterViewInit, OnDestroy, ElementRef, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
-
-interface Project {
-  id: number;
-  title: string;
-  category: string;
-  description: string;
-  image: string;
-  tags: string[];
-}
+import { ProjectService, Project } from '../../services/project.service';
+import { ProjectGalleryComponent } from '../project-gallery/project-gallery.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ProjectGalleryComponent],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
@@ -22,86 +15,31 @@ export class ProjectsComponent implements AfterViewInit, OnDestroy {
   private observer?: IntersectionObserver;
   selectedCategory = signal<string>('all');
   maxDisplayed = 6;
+  selectedProject = signal<Project | null>(null);
+  clickOrigin = signal<{ x: number, y: number } | null>(null);
+  projects = signal<Project[]>([]);
   
   categories = [
     { id: 'all', label: 'All Projects' },
     { id: 'land-development', label: 'Land Development' },
     { id: 'residential', label: 'Residential' },
-    { id: 'commercial', label: 'Commercial' }
-    ];
+    { id: 'commercial', label: 'Commercial' },
+    { id: 'parks', label: 'Parks' },
+    { id: 'upcoming', label: 'Upcoming' }
 
-  projects: Project[] = [
-    {
-      id: 1,
-      title: 'Modern Residential Complex',
-      category: 'residential',
-      description: 'Luxury apartment complex with 150 units and modern amenities',
-      image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800',
-      tags: ['Residential', 'Modern', 'Luxury']
-    },
-    {
-      id: 2,
-      title: 'Downtown Office Tower',
-      category: 'commercial',
-      description: '30-story commercial building in the heart of the city',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800',
-      tags: ['Commercial', 'High-rise', 'Office']
-    },
-    {
-      id: 3,
-      title: 'Suburban Land Development',
-      category: 'land-development',
-      description: '200-acre residential community with infrastructure',
-      image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800',
-      tags: ['Land Development', 'Community', 'Planning']
-    },
-    {
-      id: 4,
-      title: 'Historic Building Renovation',
-      category: 'renovation',
-      description: 'Restored 1920s building into modern mixed-use space',
-      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800',
-      tags: ['Renovation', 'Historic', 'Preservation']
-    },
-    {
-      id: 5,
-      title: 'Luxury Villa Estate',
-      category: 'residential',
-      description: 'Custom-built 10,000 sq ft estate with premium finishes',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800',
-      tags: ['Residential', 'Luxury', 'Custom']
-    },
-    {
-      id: 6,
-      title: 'Shopping Center Development',
-      category: 'commercial',
-      description: 'Modern retail complex with 50+ stores and entertainment',
-      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800',
-      tags: ['Commercial', 'Retail', 'Entertainment']
-    },
-    {
-      id: 7,
-      title: 'Industrial Park Layout',
-      category: 'land-development',
-      description: '500-acre industrial park with logistics facilities',
-      image: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800',
-      tags: ['Land Development', 'Industrial', 'Logistics']
-    },
-    {
-      id: 8,
-      title: 'Heritage Home Restoration',
-      category: 'renovation',
-      description: 'Complete restoration of Victorian-era mansion',
-      image: 'https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=800',
-      tags: ['Renovation', 'Heritage', 'Restoration']
-    }
-  ];
+    ];
 
   constructor(
     private elementRef: ElementRef,
     @Inject(PLATFORM_ID) private platformId: Object,
-    private router: Router
-  ) {}
+    private router: Router,
+    private projectService: ProjectService
+  ) {
+    // Load projects from service
+    this.projectService.getProjects().subscribe(projects => {
+      this.projects.set(projects);
+    });
+  }
 
   ngAfterViewInit(): void {
     this.setupScrollAnimations();
@@ -115,15 +53,15 @@ export class ProjectsComponent implements AfterViewInit, OnDestroy {
 
   get filteredProjects(): Project[] {
     const filtered = this.selectedCategory() === 'all' 
-      ? this.projects 
-      : this.projects.filter(p => p.category === this.selectedCategory());
+      ? this.projects() 
+      : this.projects().filter(p => p.category === this.selectedCategory());
     return filtered.slice(0, this.maxDisplayed);
   }
 
   get totalProjects(): number {
     return this.selectedCategory() === 'all' 
-      ? this.projects.length 
-      : this.projects.filter(p => p.category === this.selectedCategory()).length;
+      ? this.projects().length 
+      : this.projects().filter(p => p.category === this.selectedCategory()).length;
   }
 
   get hasMoreProjects(): boolean {
@@ -138,6 +76,20 @@ export class ProjectsComponent implements AfterViewInit, OnDestroy {
     this.selectedCategory.set(categoryId);
     // Re-observe cards after filtering
     setTimeout(() => this.setupScrollAnimations(), 50);
+  }
+
+  openGallery(project: Project, event: MouseEvent): void {
+    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    this.clickOrigin.set({ x, y });
+    this.selectedProject.set(project);
+  }
+
+  closeGallery(): void {
+    this.selectedProject.set(null);
+    // Clear origin after animation completes
+    setTimeout(() => this.clickOrigin.set(null), 400);
   }
 
   private setupScrollAnimations(): void {

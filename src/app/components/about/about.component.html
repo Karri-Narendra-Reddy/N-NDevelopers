@@ -14,24 +14,29 @@
         <div class="story-text">
           <h2 class="section-title">Our Story</h2>
           <p class="story-paragraph">
-            Founded in 2010, <strong>Naveen & Nikilesh Developers</strong> began with a focused vision: land plotting 
+            Founded in 2010, <strong>Naveen & Nikilesh Group</strong> began with a focused vision: land plotting 
             and development. What started as a specialized team dedicated to transforming raw land into organized, 
             well-planned layouts has evolved into a comprehensive construction and development powerhouse.
           </p>
           <p class="story-paragraph">
-            Over the years, we've successfully completed hundreds of land development projects, creating residential 
+            Over the years, we've successfully completed 25+ land development projects, creating residential 
             plots and commercial spaces that have shaped communities. Our expertise in land surveying, plot layout, 
             infrastructure planning, and regulatory compliance has earned us the trust of clients across the region.
           </p>
           <p class="story-paragraph">
-            Today, we're expanding our wings beyond land development into full-scale construction, including high-rise 
-            buildings and skyscrapers. Embracing modern construction techniques and sustainable practices, we're ready 
+            Today, we're expanding our wings beyond land development into full-scale construction. Embracing modern construction techniques and sustainable practices, we're ready 
             to take on projects of any scale while maintaining the core values that have defined us from the beginning: 
             integrity, quality, and customer satisfaction.
           </p>
+          
+          <div class="founder-signature">
+            <p class="founder-name">- TADI SRINIVAS REDDY</p>
+            <p class="company-name">Naveen & Nikilesh Group</p>
+
+          </div>
         </div>
         <div class="story-image">
-          <img src="about.jpeg" alt="Naveen & Nikilesh Developers" class="about-image" />
+          <img src="about.jpg" alt="Naveen & Nikilesh Developers" class="about-image" />
         </div>
       </div>
     </div>
@@ -41,7 +46,7 @@
   <div class="mission-vision">
     <div class="mission-vision-container">
       <div class="mission-card">
-        <div class="card-icon">🎯</div>
+        <div class="card-icon"><mat-icon>track_changes</mat-icon></div>
         <h3 class="card-title">Our Mission</h3>
         <p class="card-text">
           To deliver world-class construction and development solutions that exceed client expectations 
@@ -50,7 +55,7 @@
       </div>
 
       <div class="vision-card">
-        <div class="card-icon">🚀</div>
+        <div class="card-icon"><mat-icon>flight_takeoff</mat-icon></div>
         <h3 class="card-title">Our Vision</h3>
         <p class="card-text">
           To be the leading construction and development company, recognized for innovation, 
@@ -71,7 +76,7 @@
       <div class="values-grid">
         @for (value of values; track value.title) {
           <div class="value-card">
-            <div class="value-icon">{{ value.icon }}</div>
+            <div class="value-icon"><mat-icon [ngStyle]="{ color: value.color }">{{ value.icon }}</mat-icon></div>
             <h3 class="value-title">{{ value.title }}</h3>
             <p class="value-description">{{ value.description }}</p>
           </div>

@@ -1,0 +1,142 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Modern Residential Complex",
+      "category": "residential",
+      "description": "Luxury apartment complex with 150 units and modern amenities including swimming pool, gym, and landscaped gardens",
+      "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
+      "tags": ["Residential", "Modern", "Luxury"],
+      "gallery": [
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0024.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0032.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0042.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0073.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0080.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0090.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0094.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0103.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Residentials/DSC_0107.JPG?raw=true"
+      ],
+      "location": "Downtown District",
+      "year": "2023",
+      "client": "Urban Living Corp",
+      "brochure": ""
+    },
+    {
+      "id": 2,
+      "title": "Commercial Spaces",
+      "category": "commercial",
+      "description": "30-story commercial building in the heart of the city with state-of-the-art facilities and sustainable design",
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
+      "tags": ["Commercial", "High-rise", "Office"],
+      "gallery": [
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/commercial/DSC_0122.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/commercial/DSC_0117.jpg?raw=true"
+      ],
+      "location": "Central Business District",
+      "year": "2023",
+      "client": "Metro Business Group",
+      "brochure": ""
+    },
+    {
+      "id": 3,
+      "title": "Sri Rangam",
+      "category": "land-development",
+      "description": "10+ acre residential community with complete infrastructure including roads, utilities, and recreational facilities",
+      "image": "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriRangam/Srirangam_Logo.PNG?raw=true",
+      "tags": ["Land Development", "Community", "Planning"],
+      "gallery": [
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriRangam/DSC_0086.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriRangam/DSC_0035.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriRangam/DSC_0017.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriRangam/DSC_0016.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriRangam/DSC_0065.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriRangam/DSC_0068.jpg?raw=true"
+      ],
+      "location": "Tossipudi - Pandalapaka",
+      "year": "2023",
+      "client": "",
+      "brochure": "brochures/Sri Rangam.pdf"
+    },
+    {
+      "id": 4,
+      "title": "Sri City",
+      "category": "land-development",
+      "description": "25-acre residential community with complete infrastructure including roads, utilities, and recreational facilities",
+      "image": "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriCity/SriCity%20Urban%20Living/Sricity_Logo.jpg?raw=true",
+      "tags": ["Land Development", "Community", "Planning"],
+      "gallery": [
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriCity/DSC_0140.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriCity/DSC_0135.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriCity/DJI_0695.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriCity/DSC_0153.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/SriCity/Road.jpg?raw=true"
+      ],
+      "location": "Ramachandrapuram",
+      "year": "2022",
+      "client": "",
+      "brochure": "brochures/Sri City.pdf"
+    },
+    {
+      "id": 5,
+      "title": "Srinivasam",
+      "category": "land-development",
+      "description": "20-acre residential community with complete infrastructure including roads, utilities, and recreational facilities",
+      "image": "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/Srinivasam_Logo.PNG?raw=true",
+      "tags": ["Land Development", "Community", "Planning"],
+      "gallery": [
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/DSC_0095.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/DSC_0091.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/DSC_0099.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/DJI_0930.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/DSC_0122.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/DSC_0126.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/DSC_0074.jpg?raw=true"
+      ],
+      "location": "Rayavaram",
+      "year": "2022",
+      "client": "",
+      "brochure": "brochures/Srinivasam.pdf"
+    },
+    {
+      "id": 6,
+      "title": "Parks Development",
+      "category": "parks",
+      "description": "Recreational park with walking trails, playgrounds, and green spaces for community enjoyment",
+      "image": "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Srinivasam/Srinivasam_Logo.PNG?raw=true",
+      "tags": ["Land Development", "Community", "Planning"],
+      "gallery": [
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/parktopview.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/9ADCEF69-52B8-41A3-9857-9F85B1CB50AF.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/Buddha.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/Cow.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/DSC_0134.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/DSC_0172.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/DSC_0180.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/DSC_0184.JPG?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/RadhaKrishna.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/park.jpg?raw=true",
+        "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Park/saibaba.jpg?raw=true"
+      ],
+      "location": "",
+      "year": "Till Date",
+      "client": "",
+      "brochure": ""
+    },
+     {
+      "id": 7,
+      "title": "Upcoming Development",
+      "category": "upcoming",
+      "description": "6.13-acre residential community with complete infrastructure including roads, utilities, and recreational facilities",
+      "image": "https://github.com/Karri-Narendra-Reddy/NNConstructions/blob/Images/Sri%20paadam/6x4%20=%20Sri%20Padham%20(STAR)%20copy.jpg?raw=true",
+      "tags": ["Land Development", "Community", "Planning"],
+      "gallery": [        
+      ],
+      "location": "Machavaram",
+      "year": "2025-26",
+      "client": "",
+      "brochure": ""
+    }
+  ]
+}

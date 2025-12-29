@@ -145,6 +145,14 @@
   fill: currentColor;
 }
 
+/* Support Material Icons */
+.bottom-nav__item .icon mat-icon {
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+}
+
 .bottom-nav__item .label {
   display: inline-block;
   font-size: 0.75rem;

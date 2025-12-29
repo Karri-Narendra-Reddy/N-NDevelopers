@@ -3,11 +3,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MatIconModule, FontAwesomeModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
@@ -31,6 +36,12 @@ export class ContactComponent {
   submitMessage = '';
   submitSuccess = false;
 
+  // FontAwesome icons
+  faEnvelope = faEnvelope;
+  faLocationDot = faLocationDot;
+  faInstagram = faInstagram;
+  faWhatsapp = faWhatsapp;
+
   constructor(private http: HttpClient) {}
 
   onSubmit(): void {
@@ -41,7 +52,7 @@ export class ContactComponent {
 
     if (this.googleScriptUrl === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
       this.showMessage('Please configure Google Sheets integration first. Check console for instructions.', false);
-      console.error('📋 SETUP REQUIRED: Please follow the setup instructions in the README to configure Google Sheets.');
+      console.error('SETUP REQUIRED: Please follow the setup instructions in the README to configure Google Sheets.');
       return;
     }
 
@@ -73,7 +84,7 @@ export class ContactComponent {
           this.showMessage('Thank you! Your message has been received. We will contact you soon.', true);
           this.cdr.detectChanges();
           // Show success toast
-          this.snackBar.open('✅ Message sent successfully!', 'Close', {
+          this.snackBar.open('Message sent successfully!', 'Close', {
             duration: 5000,
             horizontalPosition: 'center',
             verticalPosition: 'top',
@@ -89,7 +100,7 @@ export class ContactComponent {
           this.showMessage('There was an error sending your message. Please try contacting us directly via phone or WhatsApp.', false);
           this.cdr.detectChanges();
           // Show error toast
-          this.snackBar.open('❌ Failed to send message. Please try again.', 'Close', {
+          this.snackBar.open('Failed to send message. Please try again.', 'Close', {
             duration: 5000,
             horizontalPosition: 'center',
             verticalPosition: 'top',

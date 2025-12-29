@@ -2,7 +2,7 @@
   <div class="header-container">
     <div class="logo">
       <!-- Replace logo.png with your actual logo file in public folder -->
-      <img src="logo.png" alt="Naveen & Nikilesh Constructions" class="logo-image" />
+      <img src="logo.jpg" alt="Naveen & Nikilesh Constructions" class="logo-image" />
       <span class="logo-text">Naveen & Nikilesh Constructions</span>
     </div>
 
@@ -11,20 +11,19 @@
       @for (item of navigationItems; track item.label) {
         <a (click)="navigateTo(item)" class="nav-link">{{ item.label }}</a>
       }
-      <button class="download-brochure-btn" (click)="downloadBrochure()" aria-label="Download Brochure">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-          <polyline points="7 10 12 15 17 10"></polyline>
-          <line x1="12" y1="15" x2="12" y2="3"></line>
-        </svg>
-        <span>Brochure</span>
-      </button>
     </nav>
 
     <!-- Theme Toggle & Mobile Menu Button -->
     <div class="header-actions">
-      <button class="theme-toggle" (click)="onThemeToggle()" aria-label="Toggle theme">
-        <span class="theme-icon">{{ themeService.isDarkMode() ? '☀️' : '🌙' }}</span>
+      <button class="theme-toggle" (click)="onThemeToggle()" 
+              [class.dark]="themeService.isDarkMode()"
+              [attr.aria-label]="themeService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'">
+        <div class="toggle-track">
+          <div class="toggle-thumb">
+            <mat-icon class="icon-light">wb_sunny</mat-icon>
+            <mat-icon class="icon-dark">nightlight</mat-icon>
+          </div>
+        </div>
       </button>
     </div>
   </div>
