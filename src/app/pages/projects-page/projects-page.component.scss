@@ -22,6 +22,15 @@
   }
 }
 
+/* Ensure hero title/subtitle are white in light theme */
+:host-context([data-theme="light"]) .page-hero {
+  color: #ffffff;
+}
+:host-context([data-theme="light"]) .page-hero .page-title,
+:host-context([data-theme="light"]) .page-hero .page-subtitle {
+  color: #ffffff;
+}
+
 .hero-content {
   max-width: 900px;
   margin: 0 auto;

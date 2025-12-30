@@ -15,48 +15,42 @@
         @for (t of testimonials; track t.name) {
           <article class="card" aria-label="Client testimonial" [style.--h]="hue(t.name)">
             <div class="card-glow" aria-hidden="true"></div>
-            <div class="card-top">
-              <div class="avatar-wrap" aria-hidden="true">
-                <div class="avatar-ring"></div>
-                <div class="avatar">
-                  <span>{{ t.name.charAt(0) }}</span>
+            <div class="company-label">{{ t.company || 'Client' }}</div>
+            <div class="split">
+              <div class="photo" aria-hidden="true">
+                <img [src]="t.image || 'visual1.jpg'" [alt]="t.name" loading="lazy" decoding="async" />
+              </div>
+              <div class="content">
+                <p class="quote">{{ t.quote }} </p>
+                <div class="accent" aria-hidden="true"></div>
+                <div class="meta-row">
+                  <div class="meta">
+                    <h3 class="name">{{ t.name }}</h3>
+                    <p class="role">{{ t.role }}</p>
+                  </div>
+                  <div class="rating" aria-label="Rating">
+                    <div class="stars" aria-hidden="true">
+                      @for (s of stars(t.rating); track s) {
+                        <mat-icon class="star">star</mat-icon>
+                      }
+                    </div>
+                    <span class="rating-text" aria-label="Numeric rating">{{ t.rating }}/5</span>
+                    @if (t.rating >= 5) {
+                      <span class="badge" aria-label="Verified"><mat-icon>verified</mat-icon></span>
+                    }
+                  </div>
                 </div>
-              </div>
-              <div class="meta">
-                <h3 class="name">{{ t.name }}</h3>
-                <p class="role">{{ t.role }} @ {{ t.company || 'Client' }}</p>
-              </div>
-              <div class="rating" aria-label="Rating">
-                <span class="rating-text">{{ t.rating }}/5</span>
-                @if (t.rating >= 5) {
-                  <span class="badge" aria-label="Verified"><mat-icon>verified</mat-icon></span>
-                }
+                <footer class="card-footer">
+                  <div class="company">
+                    <mat-icon>business</mat-icon>
+                    <span>{{ t.company || 'Private Client' }}</span>
+                  </div>
+                  <div class="sep"></div>
+                  <div class="role-pill">{{ t.role }}</div>
+                </footer>
               </div>
             </div>
-
-            <p class="quote">
-              “{{ t.quote }}”
-            </p>
-            @if (t.videoUrl) {
-              <div class="video-container">
-                <iframe 
-                  [src]="t.videoUrl | safeUrl" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen
-                  loading="lazy"
-                  title="Client testimonial video">
-                </iframe>
-              </div>
-            }
-            <footer class="card-footer">
-              <div class="company">
-                <mat-icon>business</mat-icon>
-                <span>{{ t.company || 'Private Client' }}</span>
-              </div>
-              <div class="sep"></div>
-              <div class="role-pill">{{ t.role }}</div>
-            </footer>
+            
           </article>
         }
       </div>

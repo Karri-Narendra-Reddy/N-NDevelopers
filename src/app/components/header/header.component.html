@@ -25,8 +25,8 @@
           <div class="brochure-dropdown-menu">
             @for (brochure of brochures; track brochure.name) {
               <button class="brochure-item" (click)="downloadBrochure(brochure)">
-                <mat-icon>download</mat-icon>
                 <span>{{ brochure.name }}</span>
+                <mat-icon>download</mat-icon>
               </button>
             }
           </div>
@@ -47,8 +47,8 @@
           <div class="mobile-brochure-dropdown">
             @for (brochure of brochures; track brochure.name) {
               <button class="mobile-brochure-item" (click)="downloadBrochure(brochure)">
-                <mat-icon>download</mat-icon>
                 <span>{{ brochure.name }}</span>
+                <mat-icon>download</mat-icon>
               </button>
             }
           </div>

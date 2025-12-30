@@ -1,12 +1,12 @@
 import { Component, signal, AfterViewInit, OnDestroy, ElementRef, PLATFORM_ID, Inject } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser, NgOptimizedImage } from '@angular/common';
 import { ProjectService, Project } from '../../services/project.service';
 import { ProjectGalleryComponent } from '../../components/project-gallery/project-gallery.component';
 
 @Component({
   selector: 'app-projects-page',
   standalone: true,
-  imports: [CommonModule, ProjectGalleryComponent],
+  imports: [CommonModule, NgOptimizedImage, ProjectGalleryComponent],
   templateUrl: './projects-page.component.html',
   styleUrls: ['./projects-page.component.scss']
 })
@@ -40,6 +40,10 @@ export class ProjectsPageComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      // Ensure user lands at the top when navigating to this page
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'auto' }), 0);
+    }
     this.setupScrollAnimations();
   }
 

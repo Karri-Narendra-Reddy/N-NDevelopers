@@ -39,7 +39,7 @@
           @for (project of filteredProjects; track project.id) {
             <div class="project-card" (click)="openGallery(project, $event)">
               <div class="project-image">
-                <img [src]="project.image" [alt]="project.title">
+                <img [ngSrc]="project.image" [alt]="project.title" loading="lazy" decoding="async" fill>
                 <div class="project-overlay">
                   <button class="view-btn">View Gallery</button>
                   @if (project.gallery && project.gallery.length > 0) {

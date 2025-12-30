@@ -9,7 +9,7 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
   imports: [CommonModule, FontAwesomeModule],
   template: `
     <a 
-      href="https://wa.me/919490646336?text=Hi! I'm interested in your construction services" 
+      href="https://wa.me/919492777773?text=Hi! I'm interested in your construction services" 
       target="_blank"
       class="whatsapp-float"
       aria-label="Contact us on WhatsApp">

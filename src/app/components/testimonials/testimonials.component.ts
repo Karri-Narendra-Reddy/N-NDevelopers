@@ -1,8 +1,7 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
+// Removed SafeUrlPipe and DomSanitizer as video embed is commented out
 
 type Testimonial = {
   name: string;
@@ -11,12 +10,13 @@ type Testimonial = {
   rating: number; // 1-5
   quote: string;
   videoUrl?: string; // YouTube embed URL
+  image?: string; // left-side photo
 };
 
 @Component({
   selector: 'app-testimonials',
   standalone: true,
-  imports: [CommonModule, MatIconModule, SafeUrlPipe],
+  imports: [CommonModule, MatIconModule],
   templateUrl: './testimonials.component.html',
   styleUrls: ['./testimonials.component.scss']
 })
@@ -26,39 +26,33 @@ export class TestimonialsComponent implements AfterViewInit, OnDestroy {
 
   testimonials: Testimonial[] = [
     {
-      name: 'Srinivas Reddy',
-      role: 'Homeowner',
+      name: 'K Narendra Reddy',
+      role: 'IT Employee',
       company: 'Private Client',
       rating: 5,
       quote:
-        'Exceptional workmanship and transparent communication throughout. The team delivered on time with premium quality.',
+        'As an IT employee buying for the first time, the team made weekend site visits effortless and explained the master plan and approvals clearly. Plot dimensions and directions were aligned to vastu, registration happened on time, and overall customer service was responsive and transparent.',
+      image: 'https://naveenandnikilesh.blob.core.windows.net/images/Testimonials/Narendra.jpg',
       videoUrl: 'https://www.youtube.com/embed/ugzfxhtz5H8?si=Za8RlKyiWOFaNdBO' // Replace with actual YouTube embed URL
     },
     {
-      name: 'Narendra Reddy',
-      role: 'Entrepreneur',
-      company: 'Retail Fitout',
-      rating: 5,
-      quote:
-        'They transformed our space beautifully. Professional, detail‑oriented, and incredibly reliable from start to finish.',
-      videoUrl: 'https://www.youtube.com/embed/ugzfxhtz5H8?si=Za8RlKyiWOFaNdBO' // Replace with actual YouTube embed URL
-    },
-    {
-      name: 'Sai Venkata Srinivasa Reddy',
-      role: 'Developer',
-      company: 'Land Development',
+      name: 'M S V S Reddy',
+      role: 'IT Employee',
+      company: 'Private Client',
       rating: 4,
       quote:
-        'Strong planning and execution. Permits, layouts, and delivery were handled smoothly with minimal friction.',
+        'We invested after a thorough site visit—corner markings were precise, options for NE‑facing plots were available, and the layout planning inspired confidence. Pricing was fair with no hidden charges, and the process from booking to registration was professional and hassle‑free.',
+      image: 'https://naveenandnikilesh.blob.core.windows.net/images/Testimonials/Sai.JPG',
       videoUrl: 'https://www.youtube.com/embed/ugzfxhtz5H8?si=Za8RlKyiWOFaNdBO' // Replace with actual YouTube embed URL
     },
     {
-      name: 'Santhosh G',
-      role: 'Architect',
-      company: 'Design Partner',
+      name: 'G Santosh',
+      role: 'IT Employee',
+      company: 'Private Client',
       rating: 5,
       quote:
-        'A great partner to collaborate with—quality craftsmanship, clear specs adherence, and responsive site management.',
+        'Happy with the township amenities—parks, street lighting, and wide roads—and the adherence to vastu across the layout. The team was prompt, supportive during documentation, and the registration experience was seamless. Highly recommended to fellow buyers in our village.',
+      image: 'https://naveenandnikilesh.blob.core.windows.net/images/Testimonials/santosh.jfif',
       videoUrl: 'https://www.youtube.com/embed/ugzfxhtz5H8?si=Za8RlKyiWOFaNdBO' // Replace with actual YouTube embed URL
     }
   ];

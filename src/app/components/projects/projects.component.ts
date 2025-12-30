@@ -1,5 +1,5 @@
 import { Component, signal, AfterViewInit, OnDestroy, ElementRef, PLATFORM_ID, Inject } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser, NgOptimizedImage } from '@angular/common';
 import { Router } from '@angular/router';
 import { ProjectService, Project } from '../../services/project.service';
 import { ProjectGalleryComponent } from '../project-gallery/project-gallery.component';
@@ -7,7 +7,7 @@ import { ProjectGalleryComponent } from '../project-gallery/project-gallery.comp
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, ProjectGalleryComponent],
+  imports: [CommonModule, NgOptimizedImage, ProjectGalleryComponent],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })

@@ -24,7 +24,7 @@
       @for (project of filteredProjects; track project.id) {
         <div class="project-card">
           <div class="project-image">
-            <img [src]="project.image" [alt]="project.title" loading="lazy">
+            <img [ngSrc]="project.image" [alt]="project.title" loading="lazy" decoding="async" fill>
             <div class="project-overlay">
               <button class="view-btn" (click)="openGallery(project, $event)">View Details</button>
             </div>

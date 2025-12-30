@@ -1,5 +1,6 @@
-import { Component, OnInit, AfterViewInit, ElementRef, signal, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, signal, PLATFORM_ID, Inject, computed } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-hero',
@@ -15,10 +16,12 @@ export class HeroComponent implements OnInit, AfterViewInit {
   yearsExperience = signal(0);
   clients = signal(0);
   private hasAnimated = false;
+  bannerSrc = computed(() => this.themeService.isDarkMode() ? 'hero-bg.JPEG' : 'hero-bg.jpg');
 
   constructor(
     private elementRef: ElementRef,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private themeService: ThemeService
   ) {}
 
   ngOnInit(): void {
