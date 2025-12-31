@@ -16,39 +16,46 @@
           <article class="card" aria-label="Client testimonial" [style.--h]="hue(t.name)">
             <div class="card-glow" aria-hidden="true"></div>
             <div class="company-label">{{ t.company || 'Client' }}</div>
-            <div class="split">
-              <div class="photo" aria-hidden="true">
-                <img [src]="t.image || 'visual1.jpg'" [alt]="t.name" loading="lazy" decoding="async" />
-              </div>
-              <div class="content">
-                <p class="quote">{{ t.quote }} </p>
-                <div class="accent" aria-hidden="true"></div>
-                <div class="meta-row">
-                  <div class="meta">
+            <div class="content">
+              <div class="header-row">
+                <div class="meta">
+                  @if (t.image) {
+                    <div class="avatar-img" aria-hidden="true">
+                      <img [src]="t.image" [alt]="t.name" loading="lazy" decoding="async" />
+                    </div>
+                  } @else {
+                    <div class="avatar-wrap" [attr.aria-label]="t.name">
+                      <div class="avatar-ring"></div>
+                      <div class="avatar">{{ initials(t.name) }}</div>
+                    </div>
+                  }
+                  <div class="meta-text">
                     <h3 class="name">{{ t.name }}</h3>
                     <p class="role">{{ t.role }}</p>
                   </div>
-                  <div class="rating" aria-label="Rating">
-                    <div class="stars" aria-hidden="true">
-                      @for (s of stars(t.rating); track s) {
-                        <mat-icon class="star">star</mat-icon>
-                      }
-                    </div>
-                    <span class="rating-text" aria-label="Numeric rating">{{ t.rating }}/5</span>
-                    @if (t.rating >= 5) {
-                      <span class="badge" aria-label="Verified"><mat-icon>verified</mat-icon></span>
+                </div>
+                <div class="rating" aria-label="Rating">
+                  <div class="stars" aria-hidden="true">
+                    @for (s of stars(t.rating); track s) {
+                      <mat-icon class="star">star</mat-icon>
                     }
                   </div>
+                  <span class="rating-text" aria-label="Numeric rating">{{ t.rating }}/5</span>
+                  @if (t.rating >= 5) {
+                    <span class="badge" aria-label="Verified"><mat-icon>verified</mat-icon></span>
+                  }
                 </div>
-                <footer class="card-footer">
-                  <div class="company">
-                    <mat-icon>business</mat-icon>
-                    <span>{{ t.company || 'Private Client' }}</span>
-                  </div>
-                  <div class="sep"></div>
-                  <div class="role-pill">{{ t.role }}</div>
-                </footer>
               </div>
+              <p class="quote">“ {{ t.quote }} ”</p>
+              <div class="accent" aria-hidden="true"></div>
+              <footer class="card-footer">
+                <div class="company">
+                  <mat-icon>business</mat-icon>
+                  <span>{{ t.company || 'Private Client' }}</span>
+                </div>
+                <div class="sep"></div>
+                <div class="role-pill">{{ t.role }}</div>
+              </footer>
             </div>
             
           </article>

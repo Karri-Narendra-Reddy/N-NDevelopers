@@ -26,36 +26,47 @@ export class TestimonialsComponent implements AfterViewInit, OnDestroy {
 
   testimonials: Testimonial[] = [
     {
-      name: 'K Narendra Reddy',
-      role: 'IT Employee',
-      company: 'Private Client',
+      name: 'K Venkanna',
+      role: 'Farmer',
+      company: 'Self Employed',
       rating: 5,
       quote:
-        'As an IT employee buying for the first time, the team made weekend site visits effortless and explained the master plan and approvals clearly. Plot dimensions and directions were aligned to vastu, registration happened on time, and overall customer service was responsive and transparent.',
-      image: 'https://naveenandnikilesh.blob.core.windows.net/images/Testimonials/Narendra.jpg',
+        'This is a DTCP approved layout with all necessary amenities. The team was very supportive from site visit to registration. The plot location is excellent with good road connectivity and surrounded by developed layouts. Overall, a great investment opportunity.',
+      image: '',
       videoUrl: 'https://www.youtube.com/embed/ugzfxhtz5H8?si=Za8RlKyiWOFaNdBO' // Replace with actual YouTube embed URL
     },
     {
-      name: 'M S V S Reddy',
-      role: 'IT Employee',
-      company: 'Private Client',
+      name: 'M Ramachandra Reddy',
+      role: 'Government Employee',
+      company: 'Retired',
       rating: 4,
       quote:
-        'We invested after a thorough site visit—corner markings were precise, options for NE‑facing plots were available, and the layout planning inspired confidence. Pricing was fair with no hidden charges, and the process from booking to registration was professional and hassle‑free.',
-      image: 'https://naveenandnikilesh.blob.core.windows.net/images/Testimonials/Sai.JPG',
+        'After my retirement, I wanted to invest in a peaceful and well-developed layout. This project offered the perfect blend of tranquility and modern amenities. The team was very professional and guided me through the entire process smoothly.',
+      image: '',
       videoUrl: 'https://www.youtube.com/embed/ugzfxhtz5H8?si=Za8RlKyiWOFaNdBO' // Replace with actual YouTube embed URL
     },
     {
-      name: 'G Santosh',
-      role: 'IT Employee',
+      name: 'K Suresh Babu',
+      role: 'Family-Oriented Decision',
       company: 'Private Client',
       rating: 5,
       quote:
-        'Happy with the township amenities—parks, street lighting, and wide roads—and the adherence to vastu across the layout. The team was prompt, supportive during documentation, and the registration experience was seamless. Highly recommended to fellow buyers in our village.',
-      image: 'https://naveenandnikilesh.blob.core.windows.net/images/Testimonials/santosh.jfif',
+        'We wanted a peaceful environment away from the city hustle. This layout offered just that with its serene surroundings and essential amenities. The team was very helpful and guided us through every step, making the entire process hassle-free.',
+      image: '',
       videoUrl: 'https://www.youtube.com/embed/ugzfxhtz5H8?si=Za8RlKyiWOFaNdBO' // Replace with actual YouTube embed URL
+    },
+    {
+      name: 'B Harish Kumar',
+      role: 'Contractor',
+      company: 'Construction Partner',
+      rating: 5,
+      quote:
+        'I have worked on this project as a contractor and can vouch for the quality of development and infrastructure. The layout is well-planned with all necessary amenities, making it an ideal choice for investors and end-users alike.',
+      image: '',
+      videoUrl: 'https://www.youtube.com/embed/ugzfxhtz5H8?si=Za8RlKyiWOFaNdBO'
     }
   ];
+
 
   stars(count: number): number[] {
     return Array.from({ length: Math.max(0, Math.min(5, count)) }, (_, i) => i);
@@ -153,4 +164,13 @@ export class TestimonialsComponent implements AfterViewInit, OnDestroy {
       (el as HTMLElement).style.setProperty('--mx', '50%')
     );
   }
+    initials(name: string): string {
+      if (!name) return '?';
+      const parts = name.trim().split(/\s+/).filter(Boolean);
+      const first = parts[0]?.[0] ?? '';
+      const last = parts.length > 1 ? parts[parts.length - 1][0] : '';
+      const out = `${first}${last}`.toUpperCase();
+      return out || '?';
+    }
+
 }
